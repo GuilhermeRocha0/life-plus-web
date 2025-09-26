@@ -1,10 +1,18 @@
-import React from 'react';
-import { PageTitle } from '../styles/Styles'
+import { LoginContainer, FormularioLog } from "../styles/Styles";
 
-const Home: React.FC = () => {
+const Login = () => {
   return (
-    <PageTitle>Login</PageTitle>
+    <LoginContainer>
+      <FormularioLog>
+        <h2>Entre</h2>
+        <form>
+          <input type="email" placeholder="E-mail" required />
+          <input type="password" placeholder="Senha" required />
+          <button type="submit">Entrar</button>
+        </form>
+      </FormularioLog>
+    </LoginContainer>
   );
 };
 
-export default Home;
+export default Login;

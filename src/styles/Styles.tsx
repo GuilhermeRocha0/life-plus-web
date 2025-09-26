@@ -231,3 +231,222 @@ export const ViewButton = styled.button`
   }
 `;
 
+// Home
+
+export const HomeWrapper = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url('fundo.svg');
+  color: white;
+  font-family: Arial, sans-serif;
+`;
+
+export const HomeHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+`;
+
+export const HomeLogo = styled.h1`
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
+export const HomeNav = styled.nav`
+  display: flex;
+  align-items: center;
+`;
+
+export const HomeNavLink = styled(Link)`
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const MainSection = styled.main`
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+`;
+
+export const MainTitle = styled.h2`
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+`;
+
+export const MainText = styled.p`
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  outline: none;
+`;
+
+export const PrimaryButtonLink = styled(Link)`
+  background: white;
+  color: #000000;
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    background: #f3f4f6;
+  }
+`;
+
+export const OutlineButtonLink = styled(Link)`
+  background: transparent;
+  color: white;
+  padding: 12px 25px;
+  border: 2px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+`;
+
+export const FooterNote = styled.footer`
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  background: transparent;
+`;
+
+// Perfil
+
+export const LoginContainer = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-image: url('./fundo.svg');
+  padding-left: 1200px;
+`;
+
+export const FormularioLog = styled.div`
+  background: rgba(255, 255, 255, 0.95);
+  padding: 80px;
+  border-radius: 2px;
+  width: 450px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding-left: -20px;
+
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 38px;
+    text-align: center;
+  }
+
+  form {
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      background: #00b4d8;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        background: #0096c7;
+      }
+    }
+  }
+`;
+
+// Cadastro
+
+export const CadastroContainer = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-image: url('./public/fundo.svg');
+  padding-left: 190px;
+`;
+
+export const Formulario = styled.div`
+  background: rgba(255, 255, 255, 0.95);
+  padding: 80px;
+  border-radius: 2px;
+  width: 450px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding-left: -20px;
+
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  form {
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      background: #00b4d8;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin-left: 15px;
+
+      &:hover {
+        background: #0096c7;
+      }
+    }
+  }
+`;
