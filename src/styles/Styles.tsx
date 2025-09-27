@@ -13,6 +13,9 @@ export const Navbar = styled.nav`
   flex-direction: column;
   padding: 2.4rem 1.6rem;
   box-sizing: border-box;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  
 
   @media only screen and (max-width: 960px) {
     flex-direction: row;
@@ -29,6 +32,7 @@ export const Logo = styled.div`
   font-size: 3.2rem;
   font-weight: bold;
   margin-bottom: 3.2rem;
+  text-align: center;
 
   @media only screen and (max-width: 960px) {
     margin-bottom: 0;
@@ -37,7 +41,7 @@ export const Logo = styled.div`
 
 export const MenuLinks = styled.ul<{ isOpen: boolean }>`
   list-style: none;
-  padding: 0;
+  padding: 0 0 0 45px;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -448,5 +452,159 @@ export const Formulario = styled.div`
         background: #0096c7;
       }
     }
+  }
+`;
+
+// Perfil
+
+// Container principal da página
+export const ProfileContainer = styled.div`
+  min-height: 85vh;
+  background-color: #0096c7;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  margin-top: 10px;
+  max-width: 100vw;
+  
+`;
+
+// Card central com perfil
+export const ProfileCard = styled.div`
+  width: 100%;
+  max-width: 900px;
+  background-color: #ffffffff;
+  border-radius: 16px 0 16px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+`;
+
+// Cabeçalho do perfil (avatar + infos)
+export const ProfileHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+`;
+
+// Avatar
+export const ProfileAvatar = styled.img`
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+`;
+
+// Nome e username
+export const ProfileInfo = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 50px;
+`;
+
+export const ProfileName = styled.h1`
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
+`;
+
+export const ProfileJob = styled.p`
+  font-size: 1.5rem;
+  color: #777;
+`;
+
+// Bio
+export const ProfileCautions = styled.p`
+  margin-top: 12px;
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.4;
+`;
+
+// Localização, email etc.
+export const ProfileDetails = styled.div`
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 1.1rem;
+  color: #666;
+`;
+
+// Estatísticas
+export const StatsWrapper = styled.div`
+  margin: 24px 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+`;
+
+export const StatCard = styled.div`
+  padding: 16px;
+  border-radius: 12px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  text-align: center;
+`;
+
+export const StatLabel = styled.div`
+  font-size: 1.85rem;
+  color: #777;
+`;
+
+export const StatValue = styled.div`
+  margin-top: 8px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #222;
+`;
+
+// Área sobre + seções
+export const AboutSection = styled.div`
+  padding: 0 32px 32px 32px;
+`;
+
+export const SectionTitle = styled.h2`
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #222;
+`;
+
+export const SectionContent = styled.div`
+  font-size: 1.3rem;
+  color: #555;
+  line-height: 1.5;
+  padding-bottom: 20px;
+`;
+
+export const ExamsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
+
+export const ExamsTag = styled.span`
+  background: #f1f1f1;
+  padding: 6px 12px ;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 15px;
+`;
+
+export const MedicineList = styled.ul`
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 1.2rem;
+  color: #444;
+
+  li {
+    margin-bottom: 6px;
   }
 `;
