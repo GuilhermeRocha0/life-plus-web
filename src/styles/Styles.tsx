@@ -606,3 +606,97 @@ export const MedicineList = styled.ul`
     margin-bottom: 6px;
   }
 `
+// Remédio
+
+export const MedicinesContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  width: 
+  min-height: 85vh;
+  max-width: 100vw;
+`;
+
+export const MedicinesCard = styled.div`
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+`;
+
+export const MedicinesHeader = styled.div`
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: black;
+  }
+  hr {
+    margin-bottom: 1rem;
+    
+  }
+`;
+
+export const MedicinesListHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: black;
+`;
+
+export const MedicinesList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: black;
+`;
+
+export const MedicineItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  
+`;
+
+export const MedicineInfo = styled.div`
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+`;
+
+export const BtnAdd = styled.button`
+  background: #4caf50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: #43a047;
+  }
+`;
+
+export const BtnStatus = styled.button<{ taken: boolean }>`
+  background: ${(props) => (props.taken ? "#2196f3" : "#f44336")};
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+`;
