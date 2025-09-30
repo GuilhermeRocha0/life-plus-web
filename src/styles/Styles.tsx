@@ -36,8 +36,9 @@ export const Logo = styled.div`
   margin-bottom: 3.2rem;
   text-align: center;
 
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 425px) {
     margin-bottom: 0;
+    width: 100%;
   }
 `
 
@@ -262,25 +263,33 @@ export const HomeLogo = styled.h1`
 export const HomeNav = styled.nav`
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.4rem;
+
+  @media only screen and (max-width: 768px) {
+    gap: 0.6rem;
+  }
 `
 
 export const HomeNavLink = styled(Link)`
   color: #000000;
-  padding: 1.2rem 2.5rem;
+  padding: 1.2rem 2.4rem;
   border-radius: 0.8rem;
   border: none;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
   text-decoration: none;
-  background: #f3f4f6;
   font-size: 1.8rem;
   transition: all 0.2s ease-in-out;
+  color: #fff;
 
   &:hover {
     transform: scale(1.1);
     text-decoration: underline;
+  }
+
+  @media only screen and (max-width: 425px) {
+    display: none;
   }
 `
 
