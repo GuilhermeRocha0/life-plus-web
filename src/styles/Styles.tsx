@@ -23,7 +23,7 @@ export const Navbar = styled.nav`
     align-items: center;
     width: 100%;
     height: 6rem;
-    padding: 0 2.4rem;
+    padding: 2.4rem 1.6rem;
     position: relative;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -36,7 +36,7 @@ export const Logo = styled.div`
   margin-bottom: 3.2rem;
   text-align: center;
 
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 960px) {
     margin-bottom: 0;
     width: 100%;
   }
