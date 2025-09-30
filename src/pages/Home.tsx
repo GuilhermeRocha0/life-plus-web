@@ -18,7 +18,7 @@ const Home: React.FC = () => {
   return (
     <HomeWrapper>
       <HomeHeader>
-        <Logo>Life+</Logo>
+        <Logo to="/">Life+</Logo>
         <HomeNav>
           <HomeNavLink to="/login">Entrar</HomeNavLink>
           <HomeNavLink to="/cadastro">Criar Conta</HomeNavLink>
@@ -26,7 +26,7 @@ const Home: React.FC = () => {
       </HomeHeader>
 
       <MainSection>
-        <MainTitle>Organize sua saúde com o PlusLife+</MainTitle>
+        <MainTitle>Organize sua saúde com o Life+</MainTitle>
         <MainText>
           Gerencie seus medicamentos, receba avisos de horários, armazene exames
           e encontre farmácias próximas.
@@ -37,7 +37,7 @@ const Home: React.FC = () => {
         </Buttons>
       </MainSection>
 
-      <FooterNote>© 2025 PlusLife+. Todos os direitos reservados.</FooterNote>
+      <FooterNote>© 2025 Life+. Todos os direitos reservados.</FooterNote>
     </HomeWrapper>
   )
 }
