@@ -30,11 +30,18 @@ export const Navbar = styled.nav`
   }
 `
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   font-size: 3.2rem;
   font-weight: bold;
-  margin-bottom: 3.2rem;
   text-align: center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+    text-decoration: underline;
+  }
 
   @media only screen and (max-width: 767px) {
     margin-bottom: 0;
@@ -50,6 +57,7 @@ export const MenuLinks = styled.ul<{ isOpen: boolean }>`
   flex-direction: column;
   gap: 1.5rem;
   flex-grow: 1;
+  margin-top: 3.2rem;
 
   @media only screen and (max-width: 960px) {
     position: fixed;
@@ -65,6 +73,7 @@ export const MenuLinks = styled.ul<{ isOpen: boolean }>`
     flex-direction: column;
     gap: 2rem;
     z-index: 9;
+    margin-top: 0;
   }
 `
 
@@ -271,13 +280,11 @@ export const HomeNav = styled.nav`
 `
 
 export const HomeNavLink = styled(Link)`
-  color: #000000;
   padding: 1.2rem 2.4rem;
   border-radius: 0.8rem;
   border: none;
   cursor: pointer;
   font-weight: bold;
-  transition: 0.3s;
   text-decoration: none;
   font-size: 1.8rem;
   transition: all 0.2s ease-in-out;

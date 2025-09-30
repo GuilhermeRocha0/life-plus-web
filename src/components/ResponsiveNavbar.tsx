@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
-import { Navbar, Logo, MenuLinks, MenuItem, StyledLink, Hamburger } from '../styles/Styles'
+import React, { useState } from 'react'
+import {
+  Navbar,
+  Logo,
+  MenuLinks,
+  MenuItem,
+  StyledLink,
+  Hamburger
+} from '../styles/Styles'
 
 const ResponsiveNavbar: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false)
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const toggleMenu = () => setMenuOpen(prev => !prev)
 
   return (
     <Navbar>
-      <Logo>
-        <StyledLink to="/" >
-          LifePlus
-        </StyledLink>
+      <Logo to="/">
+        <StyledLink to="/">LifePlus</StyledLink>
       </Logo>
       <Hamburger
         onClick={toggleMenu}
@@ -40,7 +45,7 @@ const ResponsiveNavbar: React.FC = () => {
         </MenuItem>
       </MenuLinks>
     </Navbar>
-  );
-};
+  )
+}
 
-export default ResponsiveNavbar;
+export default ResponsiveNavbar
