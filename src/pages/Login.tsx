@@ -1,9 +1,9 @@
-import { LoginContainer, FormularioLog, CadastroLink } from "../styles/Styles";
+import { LoginContainer, Formulario, CadastroLink } from '../styles/Styles'
 
 const Login: React.FC = () => {
   return (
     <LoginContainer>
-      <FormularioLog>
+      <Formulario>
         <h2>Login</h2>
         <form>
           <label htmlFor="email">E-mail:</label>
@@ -18,9 +18,9 @@ const Login: React.FC = () => {
         <CadastroLink>
           Não tem uma conta? <a href="/cadastro">Crie aqui</a>
         </CadastroLink>
-      </FormularioLog>
+      </Formulario>
     </LoginContainer>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
