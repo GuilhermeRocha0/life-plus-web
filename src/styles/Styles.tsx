@@ -371,8 +371,8 @@ export const FooterNote = styled.footer`
 // Login
 
 export const LoginContainer = styled.div`
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -383,8 +383,8 @@ export const LoginContainer = styled.div`
   @media only screen and (max-width: 768px) {
     background-color: #fff;
     background-image: none;
+    padding-left: 2.4rem;
     justify-content: center;
-    padding: 2.4rem;
   }
 `
 
@@ -409,8 +409,8 @@ export const CadastroLink = styled.p`
 // Cadastro
 
 export const CadastroContainer = styled.div`
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -428,14 +428,14 @@ export const CadastroContainer = styled.div`
 
 export const Formulario = styled.div`
   background: rgba(255, 255, 255, 0.95);
-  padding: 6rem 6rem;
+  padding: 3.2rem 3.2rem;
   border-radius: 2rem;
   width: 50rem;
   min-height: auto;
   box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.25);
 
   h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     color: #000;
     font-size: 3.6rem;
     text-align: center;
@@ -490,6 +490,7 @@ export const Formulario = styled.div`
     padding: 2.4rem;
   }
 `
+
 
 // Perfil
 

@@ -41,12 +41,12 @@ export default function ProfilePage({ user }: { user?: UserProfile }) {
   const defaultUser: UserProfile = {
     id: 'u_001',
     fullName: 'Cleiton Rasta',
-    job: 'Pedreiro',
-    avatarUrl: 'https://i.pravatar.cc/150?img=12',
+    job: 'Desempregado',
+    avatarUrl: 'https://i.pravatar.cc/150?img=11',
     location: 'São Paulo, Brasil',
     email: 'cleiton@example.com',
     cautions: 'Pressão Alta, Diabetes',
-    medicine: 'Paracetamol, Insulina, Tibolona, Lozartana',
+    medicine: 'Paracetamol, Tibolona, Lozartana',
     phone: '+55 11 9 9999-9999',
     joinedAt: '2023-04-15',
   };

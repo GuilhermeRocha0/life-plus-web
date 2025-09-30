@@ -6,11 +6,8 @@ const Cadastro: React.FC = () => {
       <Formulario>
         <h2>Criar Conta</h2>
         <form>
-          <label htmlFor="nome">Nome:</label>
+          <label htmlFor="nome">Nome Completo:</label>
           <input id="nome" type="text" required />
-
-          <label htmlFor="sobrenome">Sobrenome:</label>
-          <input id="sobrenome" type="text" required />
 
           <label htmlFor="email">E-mail:</label>
           <input id="email" type="email" required />

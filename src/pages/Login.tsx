@@ -12,7 +12,7 @@ const Login: React.FC = () => {
           <label htmlFor="senha">Senha:</label>
           <input id="senha" type="password" required />
 
-          <button type="submit">Entrar</button>
+          <button type='submit'>Entrar</button>
         </form>
 
         <CadastroLink>

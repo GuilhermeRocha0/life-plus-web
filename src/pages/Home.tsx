@@ -37,7 +37,7 @@ const Home: React.FC = () => {
         </Buttons>
       </MainSection>
 
-      <FooterNote>© 2025 PlusLife+. Todos os direitos reservados.</FooterNote>
+      <FooterNote>© 2025 Life+. Todos os direitos reservados.</FooterNote>
     </HomeWrapper>
   )
 }
