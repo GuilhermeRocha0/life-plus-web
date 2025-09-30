@@ -36,7 +36,7 @@ export const Logo = styled.div`
   margin-bottom: 3.2rem;
   text-align: center;
 
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 767px) {
     margin-bottom: 0;
     width: 100%;
   }
