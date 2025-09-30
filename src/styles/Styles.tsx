@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+// Navbar
 export const Navbar = styled.nav`
   background: linear-gradient(to bottom, #00c6ff, #0072ff);
   color: white;
@@ -123,9 +124,7 @@ export const Hamburger = styled.button<{ isOpen: boolean }>`
 
   div:nth-child(3) {
     transform: ${({ isOpen }) =>
-      isOpen
-        ? 'translateY(-1rem) rotate(-45deg)'
-        : 'translate(0, 0) rotate(0)'};
+      isOpen ? 'translateY(-1rem) rotate(-45deg)' : 'translate(0, 0) rotate(0)'};
   }
 `
 
@@ -235,7 +234,6 @@ export const ViewButton = styled.button`
 `
 
 // Home
-
 export const HomeWrapper = styled.div`
   height: 100vh;
   width: 100vw;
@@ -251,7 +249,12 @@ export const HomeHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 5rem;
+  padding: 20px 50px;
+`
+
+export const HomeLogo = styled.h1`
+  font-size: 3.0rem;
+  font-weight: bold;
 `
 
 export const HomeNav = styled.nav`
@@ -261,16 +264,14 @@ export const HomeNav = styled.nav`
 
 export const HomeNavLink = styled(Link)`
   margin-left: 2rem;
-  color: white;
+  color: #000000;
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.8rem;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-    text-decoration: underline;
-  }
+  background: #f3f4f6;
 `
 
 export const MainSection = styled.main`
@@ -281,14 +282,14 @@ export const MainSection = styled.main`
 `
 
 export const MainTitle = styled.h2`
-  font-size: 5.6rem;
+  font-size: 4.1rem;
   font-weight: bold;
   margin-bottom: 2rem;
 `
 
 export const MainText = styled.p`
-  font-size: 2rem;
-  margin-bottom: 3rem;
+  font-size: 1.4rem;
+  margin-bottom: 30px;
 `
 
 export const Buttons = styled.div`
@@ -323,7 +324,6 @@ export const OutlineButtonLink = styled(Link)`
   border-radius: 0.8rem;
   cursor: pointer;
   font-weight: bold;
-  transition: 0.3s;
   text-decoration: none;
   transition: all 0.2s;
 
@@ -335,368 +335,103 @@ export const OutlineButtonLink = styled(Link)`
 
 export const FooterNote = styled.footer`
   text-align: center;
-  padding: 1.6rem;
+  padding: 15px;
+  font-size: 1.1rem;
   background: transparent;
 `
 
-// Perfil
-
+// Login
 export const LoginContainer = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   background-size: cover;
-  background-image: url('./fundo.svg');
-  padding-left: 1200px;
+  background-image: url('./public/fundo.svg');
+  padding-left: 700px;
 `
 
 export const FormularioLog = styled.div`
   background: rgba(255, 255, 255, 0.95);
-  padding: 8rem;
-  border-radius: 0.2rem;
-  width: 45rem;
-  box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.2);
-  padding-left: -2rem;
-
-  h2 {
-    margin-bottom: 2rem;
-    color: #333;
-    font-size: 3.8rem;
-    text-align: center;
-  }
-
-  form {
-    input {
-      width: 100%;
-      padding: 1.2rem;
-      margin: 1rem 0;
-      border: 0.1rem solid #ccc;
-      border-radius: 1rem;
-      font-size: 1.4rem;
-    }
-
-    button {
-      width: 100%;
-      padding: 1.2rem;
-      margin-top: 1.6rem;
-      border: none;
-      border-radius: 0.6rem;
-      background: #00b4d8;
-      color: white;
-      font-size: 1.6rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s ease;
-
-      &:hover {
-        background: #0096c7;
-      }
-    }
-  }
-`
-
-// Cadastro
-
-export const CadastroContainer = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  background-size: cover;
-  background-image: url('./public/fundo.svg');
-  padding-left: 190px;
-`
-
-export const Formulario = styled.div`
-  background: rgba(255, 255, 255, 0.95);
-  padding: 80px;
-  border-radius: 2px;
-  width: 450px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  padding-left: -20px;
+  padding: 40px 50px;
+  border-radius: 20px;
+  width: 500px;
+  min-height: auto;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 
   h2 {
     margin-bottom: 20px;
-    color: #333;
-    font-size: 32px;
+    color: #000;
+    font-size: 44px;
     text-align: center;
   }
 
   form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1f1f1f;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     input {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
+      padding: 14px;
+      margin-bottom: 10px;
       border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 14px;
+      border-radius: 12px;
+      font-size: 16px;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+      }
     }
 
     button {
       width: 100%;
-      padding: 12px;
-      margin-top: 15px;
+      padding: 16px;
+      margin-top: 20px;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       background: #00b4d8;
       color: white;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s ease;
-      margin-left: 15px;
 
       &:hover {
         background: #0096c7;
+      }
+
+      &:focus {
+        outline: none;
       }
     }
   }
 `
 
-// Perfil
-
-// Container principal da página
-export const ProfileContainer = styled.div`
-  min-height: 85vh;
-  background-color: #0096c7;
-  padding: 24px;
-  display: flex;
-  justify-content: center;
-  border-radius: 10px;
+export const CadastroLink = styled.p`
   margin-top: 10px;
-  max-width: 100vw;
-`
-
-// Card central com perfil
-export const ProfileCard = styled.div`
-  width: 100%;
-  max-width: 900px;
-  background-color: #ffffffff;
-  border-radius: 16px 0 16px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-`
-
-// Cabeçalho do perfil (avatar + infos)
-export const ProfileHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 32px;
-`
-
-// Avatar
-export const ProfileAvatar = styled.img`
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-`
-
-// Nome e username
-export const ProfileInfo = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 50px;
-`
-
-export const ProfileName = styled.h1`
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #222;
-`
-
-export const ProfileJob = styled.p`
-  font-size: 1.5rem;
-  color: #777;
-`
-
-// Bio
-export const ProfileCautions = styled.p`
-  margin-top: 12px;
-  font-size: 1.2rem;
-  color: #444;
-  line-height: 1.4;
-`
-
-// Localização, email etc.
-export const ProfileDetails = styled.div`
-  margin-top: 16px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-size: 1.1rem;
-  color: #666;
-`
-
-// Estatísticas
-export const StatsWrapper = styled.div`
-  margin: 24px 32px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 16px;
-`
-
-export const StatCard = styled.div`
-  padding: 16px;
-  border-radius: 12px;
-  background: #fafafa;
-  border: 1px solid #eee;
   text-align: center;
-`
-
-export const StatLabel = styled.div`
-  font-size: 1.85rem;
-  color: #777;
-`
-
-export const StatValue = styled.div`
-  margin-top: 8px;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #222;
-`
-
-// Área sobre + seções
-export const AboutSection = styled.div`
-  padding: 0 32px 32px 32px;
-`
-
-export const SectionTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #222;
-`
-
-export const SectionContent = styled.div`
-  font-size: 1.3rem;
-  color: #555;
-  line-height: 1.5;
-  padding-bottom: 20px;
-`
-
-export const ExamsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-`
-
-export const ExamsTag = styled.span`
-  background: #f1f1f1;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 1.2rem;
+  font-size: 14px;
   color: #333;
-  margin-bottom: 15px;
-`
 
-export const MedicineList = styled.ul`
-  list-style: disc;
-  padding-left: 20px;
-  font-size: 1.2rem;
-  color: #444;
-
-  li {
-    margin-bottom: 6px;
-  }
-`
-// Remédio
-
-export const MedicinesContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  width: 
-  min-height: 85vh;
-  max-width: 100vw;
-`;
-
-export const MedicinesCard = styled.div`
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 2rem;
-  width: 100%;
-  max-width: 600px;
-`;
-
-export const MedicinesHeader = styled.div`
-  h1 {
-    font-size: 1.5rem;
+  a {
+    color: #00b4d8;
     font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: black;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      color: #0096c7;
+    }
   }
-  hr {
-    margin-bottom: 1rem;
-    
-  }
-`;
-
-export const MedicinesListHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  color: black;
-`;
-
-export const MedicinesList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  color: black;
-`;
-
-export const MedicineItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  
-`;
-
-export const MedicineInfo = styled.div`
-  h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  p {
-    font-size: 1.1rem;
-    color: #666;
-  }
-`;
-
-export const BtnAdd = styled.button`
-  background: #4caf50;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-
-  &:hover {
-    background: #43a047;
-  }
-`;
-
-export const BtnStatus = styled.button<{ taken: boolean }>`
-  background: ${(props) => (props.taken ? "#2196f3" : "#f44336")};
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.9;
-  }
-`;
+`

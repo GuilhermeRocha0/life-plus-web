@@ -1,15 +1,23 @@
-import { LoginContainer, FormularioLog } from "../styles/Styles";
+import { LoginContainer, FormularioLog, CadastroLink } from "../styles/Styles";
 
-const Login = () => {
+const Login: React.FC = () => {
   return (
     <LoginContainer>
       <FormularioLog>
-        <h2>Entre</h2>
+        <h2>Login</h2>
         <form>
-          <input type="email" placeholder="E-mail" required />
-          <input type="password" placeholder="Senha" required />
+          <label htmlFor="email">E-mail:</label>
+          <input id="email" type="email" required />
+
+          <label htmlFor="senha">Senha:</label>
+          <input id="senha" type="password" required />
+
           <button type="submit">Entrar</button>
         </form>
+
+        <CadastroLink>
+          Não tem uma conta? <a href="/cadastro">Crie aqui</a>
+        </CadastroLink>
       </FormularioLog>
     </LoginContainer>
   );
