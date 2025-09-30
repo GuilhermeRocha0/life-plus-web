@@ -44,7 +44,7 @@ export default function ProfilePage({ user }: { user?: UserProfile }) {
     job: 'Pedreiro',
     avatarUrl: 'https://i.pravatar.cc/150?img=12',
     location: 'São Paulo, Brasil',
-    email: 'renan@example.com',
+    email: 'cleiton@example.com',
     cautions: 'Pressão Alta, Diabetes',
     medicine: 'Paracetamol, Insulina, Tibolona, Lozartana',
     phone: '+55 11 9 9999-9999',
