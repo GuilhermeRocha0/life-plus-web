@@ -280,7 +280,6 @@ export const HomeNavLink = styled(Link)`
 
   &:hover {
     transform: scale(1.1);
-    text-decoration: underline;
   }
 `
 
@@ -293,13 +292,13 @@ export const MainSection = styled.main`
 
 export const MainTitle = styled.h2`
 
-  font-size: 4.1rem;
+  font-size: 4.2rem;
   font-weight: bold;
   margin-bottom: 2rem;
-`
+`;
 
 export const MainText = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: 30px;
 `;
 
@@ -361,25 +360,26 @@ export const LoginContainer = styled.div`
   width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; /* centraliza o formulário horizontalmente */
   background-size: cover;
+  background-position: center;
   background-image: url('./public/fundo.svg');
-  padding-left: 700px;
+  padding: 20px; /* evita que encoste na borda em telas pequenas */
 `;
 
-// Formulário de login
 export const FormularioLog = styled.div`
   background: rgba(255, 255, 255, 0.95);
   padding: 40px 50px;
   border-radius: 20px;
-  width: 500px;
-  min-height: auto;
+  width: 100%;
+  max-width: 500px; /* limita o tamanho máximo */
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
 
   h2 {
     margin-bottom: 20px;
     color: #000;
-    font-size: 44px;
+    font-size: 4.2rem;
     text-align: center;
   }
 
@@ -390,7 +390,7 @@ export const FormularioLog = styled.div`
     label {
       margin-top: 10px;
       margin-bottom: 5px;
-      font-size: 16px;
+      font-size: 1.6rem;
       font-weight: 600;
       color: #1f1f1f;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -402,7 +402,7 @@ export const FormularioLog = styled.div`
       margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 12px;
-      font-size: 16px;
+      font-size: 1rem;
       box-sizing: border-box;
 
       &:focus {
@@ -418,7 +418,7 @@ export const FormularioLog = styled.div`
       border-radius: 8px;
       background: #00b4d8;
       color: white;
-      font-size: 18px;
+      font-size: 1.8rem;
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s ease;
@@ -432,7 +432,35 @@ export const FormularioLog = styled.div`
       }
     }
   }
+
+  /* Media Queries para telas pequenas */
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+
+    h2 {
+      font-size: 3.2rem;
+    }
+
+    input, button {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 15px;
+
+    h2 {
+      font-size: 2.4rem;
+    }
+
+    input, button {
+      font-size: 0.9rem;
+      padding: 12px;
+    }
+  }
 `;
+
+
 
 export const CadastroLink = styled.p`
   margin-top: 10px;
@@ -455,25 +483,27 @@ export const CadastroLink = styled.p`
 
 // Cadastro
 
-
 export const CadastroContainer = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; /* centraliza horizontalmente */
   background-size: cover;
-  background-image: url('./public/fundo.svg');
-  padding-left: 140px;
+  background-position: center;
+  background-image: url('./public/fundo.svg'); /* mantém o fundo */
+  padding: 20px; /* evita que encoste nas bordas */
+  box-sizing: border-box;
 `;
 
 export const Formulario = styled.div`
   background: rgba(255, 255, 255, 0.95);
   padding: 50px 50px;
   border-radius: 20px;
-  width: 500px;
-  min-height: auto;
+  width: 100%;
+  max-width: 500px; /* largura máxima para responsividade */
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
 
   h2 {
     margin-bottom: 20px;
@@ -522,6 +552,32 @@ export const Formulario = styled.div`
       &:hover {
         background: #0096c7;
       }
+    }
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    input, button {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 15px;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    input, button {
+      font-size: 0.9rem;
+      padding: 12px;
     }
   }
 `;
