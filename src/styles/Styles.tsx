@@ -377,7 +377,7 @@ export const LoginContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   background-size: cover;
-  background-image: url('./public/fundo.svg');
+  background-image: url('./public/fundoLife.png');
   padding: 3.2rem;
 
   @media only screen and (max-width: 768px) {
@@ -387,6 +387,7 @@ export const LoginContainer = styled.div`
     justify-content: center;
   }
 `
+
 
 export const CadastroLink = styled.p`
   margin-top: 1rem;
@@ -433,6 +434,11 @@ export const Formulario = styled.div`
   width: 50rem;
   min-height: auto;
   box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
+  left: 2.5rem;
+  top: 20rem;
+ 
 
   h2 {
     margin-bottom: 1.2rem;
@@ -488,6 +494,7 @@ export const Formulario = styled.div`
     height: 100%;
     box-shadow: none;
     padding: 2.4rem;
+    width: 30rem
   }
 `
 
