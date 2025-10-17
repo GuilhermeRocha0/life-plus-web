@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   HomeWrapper,
   HomeHeader,
@@ -12,7 +12,7 @@ import {
   OutlineButtonLink,
   FooterNote,
   Logo
-} from '../styles/Styles'
+} from '../styles/Styles';
 
 const Home: React.FC = () => {
   return (
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
 
       <FooterNote>© 2025 Life+. Todos os direitos reservados.</FooterNote>
     </HomeWrapper>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
