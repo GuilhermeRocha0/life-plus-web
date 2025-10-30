@@ -1,7 +1,10 @@
 import { CadastroContainer, Formulario, LoginText } from "../styles/Styles";
+import Background from "../components/Background";
 
 const Cadastro: React.FC = () => {
   return (
+    <>
+    <Background />
     <CadastroContainer>
       <Formulario>
         <h2>Criar Conta</h2>
@@ -27,6 +30,8 @@ const Cadastro: React.FC = () => {
 
       </Formulario>
     </CadastroContainer>
+    
+    </>
   );
 };
 

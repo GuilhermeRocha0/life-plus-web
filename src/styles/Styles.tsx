@@ -375,18 +375,17 @@ export const LoginContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   background-size: cover;
-  background-image: url('./public/fundo.svg');
   padding: 3.2rem;
 
   @media only screen and (max-width: 768px) {
     background-color: #fff;
-    background-image: none;
     padding-left: 2.4rem;
     justify-content: center;
   }
 `
+
 
 export const CadastroLink = styled.p`
   margin-top: 1rem;
@@ -413,18 +412,29 @@ export const CadastroContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   background-size: cover;
-  background-image: url('./public/fundo.svg');
   padding: 3.2rem;
 
   @media only screen and (max-width: 768px) {
     background-color: #fff;
-    background-image: none;
-    padding-left: 2.4rem;
     justify-content: center;
   }
 `
+//Video Fundo
+export const BackgroundVideo = styled.video`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* deixa o vídeo atrás do conteúdo */
+  filter: 'contrast(1.5) brightness(0.8) saturate(1.15)';
+  transition: 'opacity 0.5s ease-in-out';
+  
+
+`;
 
 export const Formulario = styled.div`
   background: rgba(255, 255, 255, 0.95);
@@ -433,6 +443,9 @@ export const Formulario = styled.div`
   width: 50rem;
   min-height: auto;
   box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
+ 
 
   h2 {
     margin-bottom: 1.2rem;
@@ -488,6 +501,7 @@ export const Formulario = styled.div`
     height: 100%;
     box-shadow: none;
     padding: 2.4rem;
+    width: 30rem
   }
 `
 

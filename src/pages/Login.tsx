@@ -1,7 +1,10 @@
-import { LoginContainer, Formulario, CadastroLink } from '../styles/Styles'
+import { LoginContainer, Formulario, CadastroLink ,} from '../styles/Styles'
+import Background from '../components/Background';
 
 const Login: React.FC = () => {
   return (
+    <>
+      <Background />
     <LoginContainer>
       <Formulario>
         <h2>Login</h2>
@@ -20,6 +23,8 @@ const Login: React.FC = () => {
         </CadastroLink>
       </Formulario>
     </LoginContainer>
+    
+    </>
   )
 }
 
