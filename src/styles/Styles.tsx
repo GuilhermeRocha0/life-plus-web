@@ -750,3 +750,58 @@ export const BtnStatus = styled.button<{ taken: boolean }>`
     opacity: 0.9;
   }
 `
+// FAQ
+
+
+export const FaqSection = styled.main`
+  max-width: 80rem;
+  margin: auto;
+  padding: 4rem 2rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media only screen and (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+`;
+
+export const FaqTitle = styled.h2`
+  font-size: 4rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem;
+`;
+
+export const FaqList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+export const FaqItem = styled.div`
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1.2rem;
+  padding: 2rem;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+  }
+`;
+
+export const Question = styled.h3`
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: ${({ theme }) => theme.homeText};
+`;
+
+export const Answer = styled.p`
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: ${({ theme }) => theme.homeText};
+  opacity: 0.9;
+`;

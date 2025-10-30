@@ -20,6 +20,7 @@ const Home: React.FC = () => {
       <HomeHeader>
         <Logo to="/">Life+</Logo>
         <HomeNav>
+          <HomeNavLink to="/faq">FAQ</HomeNavLink>
           <HomeNavLink to="/login">Entrar</HomeNavLink>
           <HomeNavLink to="/cadastro">Criar Conta</HomeNavLink>
         </HomeNav>

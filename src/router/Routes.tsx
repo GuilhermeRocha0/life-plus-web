@@ -7,6 +7,7 @@ import Medicines from '../pages/Medicines.tsx'
 import Home from '../pages/Home.tsx';
 import Login from '../pages/Login.tsx';
 import Cadastro from '../pages/Register.tsx';
+import Faq from '../pages/Faq.tsx';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -17,6 +18,8 @@ const AppRoutes: React.FC = () => {
       <Route path="/perfil" element={<Profile />} />
       <Route path="/exames" element={<Exams />} />
       <Route path="/remedios" element={<Medicines />} />
+      <Route path="/faq" element={<Faq />} />
+
       {/* Rota padrão */}
       <Route path="*" element={<Profile />} />
     </Routes>
