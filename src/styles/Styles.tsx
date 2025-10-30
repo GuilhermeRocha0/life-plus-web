@@ -398,7 +398,7 @@ export const CadastroContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   background-size: cover;
   background-image: ${({ theme }) => theme.backgroundImage || "none"};  padding: 3.2rem;
 
@@ -426,6 +426,9 @@ export const Formulario = styled.div`
   width: 50rem;
   min-height: auto;
   box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
+ 
 
   h2 {
     margin-bottom: 1.2rem;
@@ -483,6 +486,7 @@ export const Formulario = styled.div`
     height: 100%;
     box-shadow: none;
     padding: 2.4rem;
+    width: 30rem
   }
 `;
 
