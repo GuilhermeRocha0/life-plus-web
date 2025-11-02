@@ -1,29 +1,34 @@
-import { LoginContainer, Formulario, CadastroLink ,} from '../styles/Styles'
-import Background from '../components/Background';
+import { LoginContainer, Formulario, CadastroLink } from '../styles/Styles'
+import Background from '../components/Background'
+import { Link } from 'react-router-dom'
 
 const Login: React.FC = () => {
   return (
     <>
       <Background />
-    <LoginContainer>
-      <Formulario>
-        <h2>Login</h2>
-        <form>
-          <label htmlFor="email">E-mail:</label>
-          <input id="email" type="email" required />
+      <LoginContainer>
+        <Formulario>
+          <h2>Login</h2>
+          <form>
+            <label htmlFor="email">E-mail:</label>
+            <input id="email" type="email" required />
 
-          <label htmlFor="senha">Senha:</label>
-          <input id="senha" type="password" required />
+            <label htmlFor="senha">Senha:</label>
+            <input id="senha" type="password" required />
 
-          <button type='submit'>Entrar</button>
-        </form>
+            <CadastroLink>
+              Esqueceu sua senha?{' '}
+              <Link to="/redefinir-senha">Redefina aqui</Link>
+            </CadastroLink>
 
-        <CadastroLink>
-          Não tem uma conta? <a href="/cadastro">Crie aqui</a>
-        </CadastroLink>
-      </Formulario>
-    </LoginContainer>
-    
+            <button type="submit">Entrar</button>
+          </form>
+
+          <CadastroLink>
+            Não tem uma conta? <Link to="/cadastro">Crie aqui</Link>
+          </CadastroLink>
+        </Formulario>
+      </LoginContainer>
     </>
   )
 }

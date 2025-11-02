@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 
 // Navbar
@@ -386,7 +386,6 @@ export const LoginContainer = styled.div`
   }
 `
 
-
 export const CadastroLink = styled.p`
   margin-top: 1rem;
   text-align: center;
@@ -432,9 +431,7 @@ export const BackgroundVideo = styled.video`
   z-index: -1; /* deixa o vídeo atrás do conteúdo */
   filter: 'contrast(1.5) brightness(0.8) saturate(1.15)';
   transition: 'opacity 0.5s ease-in-out';
-  
-
-`;
+`
 
 export const Formulario = styled.div`
   background: rgba(255, 255, 255, 0.95);
@@ -445,7 +442,6 @@ export const Formulario = styled.div`
   box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.25);
   position: relative;
   z-index: 1;
- 
 
   h2 {
     margin-bottom: 1.2rem;
@@ -501,10 +497,9 @@ export const Formulario = styled.div`
     height: 100%;
     box-shadow: none;
     padding: 2.4rem;
-    width: 30rem
+    width: 30rem;
   }
 `
-
 
 // Perfil
 
@@ -767,4 +762,211 @@ export const BtnStatus = styled.button<{ taken: boolean }>`
   &:hover {
     opacity: 0.9;
   }
+`
+
+// Reset Password styles
+export const ResetPasswordPage = styled.div`
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem;
+`
+
+export const ResetPasswordContainer = styled.div`
+  background-color: #ffffff;
+  padding: 3.2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 44rem;
+
+  @media (max-width: 480px) {
+    padding: 2.4rem;
+  }
+`
+
+export const ResetPasswordTitle = styled.h2`
+  margin-bottom: 2.4rem;
+  text-align: center;
+  font-size: 2.8rem;
+  color: #333;
+`
+
+export const ResetPasswordForm = styled.form`
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-top: 1.2rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: #222;
+  }
+`
+
+export const ResetPasswordInput = styled.input`
+  border: 0.1rem solid #ccc;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.8rem;
+  margin: 0.8rem 0;
+  font-size: 1.6rem;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: #00b4d8;
+  }
+`
+
+export const ResetPasswordCodeContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin: 1.2rem 0;
+`
+
+export const ResetPasswordCodeInput = styled.input`
+  border: 0.1rem solid #ccc;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  font-size: 2rem;
+  text-align: center;
+  width: 5rem;
+  height: 5rem;
+  outline: none;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: #00b4d8;
+  }
+
+  @media (max-width: 480px) {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.8rem;
+    padding: 1rem;
+  }
+`
+
+export const ResetPasswordButton = styled.button`
+  background-color: #00b4d8;
+  color: white;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 0.8rem;
+  margin-top: 1.6rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0096c7;
+  }
+`
+
+export const ResetPasswordCancel = styled.button`
+  background-color: #999;
+  color: white;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 0.8rem;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #777;
+  }
+`
+
+// Modal styles
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+`
+
+export const ModalContainer = styled.div`
+  background-color: #fff;
+  padding: 2.4rem;
+  border-radius: 1.2rem;
+  width: 90%;
+  max-width: 40rem;
+  text-align: center;
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.2);
+`
+
+export const IconWrapper = styled.div<{ type: 'success' | 'error' }>`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+
+  svg {
+    width: 5rem;
+    height: 5rem;
+    color: ${({ type }) => (type === 'success' ? '#28a745' : '#dc3545')};
+  }
+`
+export const Title = styled.h3`
+  margin-bottom: 1rem;
+  color: #333;
+`
+
+export const TitleStyled = styled(Title)<{ type: 'success' | 'error' }>`
+  color: ${({ type }) => (type === 'success' ? '#28a745' : '#dc3545')};
+`
+
+export const Message = styled.p`
+  color: #555;
+  margin-bottom: 2rem;
+`
+
+export const CloseButton = styled.button`
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1rem 1.6rem;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`
+
+// Loading Modal styles
+const spin = keyframes`
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+export const Spinner = styled.div`
+  width: 5rem;
+  height: 5rem;
+  border: 0.4rem solid #ccc;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: ${spin} 1s linear infinite;
+  margin-bottom: 1.6rem;
+`
+
+export const LoadingText = styled.p`
+  font-size: 1.6rem;
+  color: #444;
+  text-align: center;
 `
