@@ -34,7 +34,7 @@ const Home: React.FC = () => {
         </MainText>
         <Buttons>
           <PrimaryButtonLink to="/login">Entrar</PrimaryButtonLink>
-          <OutlineButtonLink to="/cadastro">Criar Conta</OutlineButtonLink>
+          <PrimaryButtonLink to="/cadastro">Criar Conta</PrimaryButtonLink>
         </Buttons>
       </MainSection>
 
