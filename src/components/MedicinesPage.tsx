@@ -93,7 +93,6 @@ export default function MedicinesPage() {
       <MedicinesCard>
         <MedicinesHeader>
           <h1>Remédios</h1>
-          <hr />
         </MedicinesHeader>
 
         <MedicinesListHeader>

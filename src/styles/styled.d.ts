@@ -19,6 +19,7 @@ declare module 'styled-components' {
     textPrimary: string;
     textSecondary: string;
     cardBackground: string;
+    examCardBackground: string;
     inputBackground: string;
     inputBorder: string;
     backgroundSecondary: string;

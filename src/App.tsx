@@ -6,6 +6,7 @@ import { lightTheme, darkTheme } from "./styles/theme";
 import Routes from "./router/Routes";
 import ThemeToggle from "./components/ThemeToggle";
 import UserWayWidget from './components/UserWayWidget';
+import { GlobalStyles } from './styles/GlobalStyles'
 
 const App: React.FC = () => {
   // controla se o tema atual é escuro
@@ -23,6 +24,7 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+      <GlobalStyles />
       <BrowserRouter>
         {/* Botão de alternar tema fica fixo em todas as páginas */}
         <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />

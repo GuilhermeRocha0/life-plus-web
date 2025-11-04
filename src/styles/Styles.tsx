@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 
+
 // Navbar
 export const Navbar = styled.nav`
   background: linear-gradient(to bottom, #00c6ff, #0072ff);
@@ -16,6 +17,7 @@ export const Navbar = styled.nav`
   box-sizing: border-box;
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
+  z-index: 1;
 
   @media only screen and (max-width: 960px) {
     flex-direction: row;
@@ -144,6 +146,7 @@ export const PageWrapper = styled.div`
   min-height: 100%;
   max-width: 100%;
   padding: 2.4rem;
+  background-color: ${({ theme }) => theme.background};
 
   @media only screen and (min-width: 960px) {
     margin-left: 24rem;
@@ -160,6 +163,7 @@ export const PageHeader = styled.div`
 export const PageTitle = styled.h1`
   font-size: 3.2rem;
   font-weight: 700;
+  color: ${({ theme }) => theme.homeText};
 
   @media only screen and (max-width: 767px) {
     font-size: 2.8rem;
@@ -192,7 +196,7 @@ export const ExamsGrid = styled.section`
 `
 
 export const StyledExamCard = styled.div`
-  background-color: #f0fcff;
+  background-color: ${({ theme }) => theme.examCardBackground};
   border-radius: 1.6rem;
   padding: 1.6rem;
   width: 22rem;
@@ -220,17 +224,15 @@ export const ExamIcon = styled.div`
 
 export const ExamInfo = styled.div`
   margin-bottom: 1.2rem;
-
 `
 
 export const ExamInfoTitle = styled.strong`
   font-size: 1.8rem;
-    color: #444;
-
+  color: ${({ theme }) => theme.text};
 `
 
 export const ExamInfoText = styled.p`
-  color: #444;
+  color: ${({ theme }) => theme.text};
 `
 
 export const ViewButton = styled.button`
@@ -252,7 +254,7 @@ export const ViewButton = styled.button`
 
 export const HomeWrapper = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -486,10 +488,10 @@ export const BackgroundVideo = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
   filter: contrast(1.15) brightness(0.9) saturate(1.1);
   transition: opacity 0.5s ease-in-out;
 `;
+
 // Container geral da página
 export const ProfileContainer = styled.div`
   min-height: 85vh;
@@ -533,6 +535,7 @@ export const ProfileHeader = styled.div`
   padding: 3rem;
   border-bottom: 1px solid ${({ theme }) => theme.border};
 `;
+
 export const MedicineList = styled.ul`
   list-style: disc;
   padding-left: 2rem;
@@ -707,12 +710,11 @@ export const MedicineItem = styled.div`
 
 export const MedicineInfo = styled.div`
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: ${({ theme }) => theme.text};
   }
   p {
-    font-size: 1.2rem;
     color: ${({ theme }) => theme.textSecondary};
   }
 `;
