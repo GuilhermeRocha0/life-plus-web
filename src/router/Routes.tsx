@@ -8,6 +8,8 @@ import Home from '../pages/Home.tsx'
 import Login from '../pages/Login.tsx'
 import Cadastro from '../pages/Register.tsx'
 import ResetPassword from '../pages/ResetPassword.tsx'
+import Faq from '../pages/Faq.tsx'
+
 
 const AppRoutes: React.FC = () => {
   return (
@@ -20,6 +22,8 @@ const AppRoutes: React.FC = () => {
       <Route path="/exames" element={<Exams />} />
       <Route path="/remedios" element={<Medicines />} />
       <Route path="*" element={<Profile />} />
+      <Route path="/faq" element={<Faq />} />
+
     </Routes>
   )
 }
