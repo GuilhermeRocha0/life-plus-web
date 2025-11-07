@@ -527,6 +527,21 @@ export const ExamsWrapper = styled.div`
   gap: 0.8rem;
   margin-top: 1rem;
 `;
+
+export const DropzoneText = styled.div`
+  color: #0b63d6;
+  cursor: pointer;
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  small {
+    color: #6b7280;
+  }
+`;
+
 // Cabeçalho (foto + infos)
 export const ProfileHeader = styled.div`
   display: flex;
