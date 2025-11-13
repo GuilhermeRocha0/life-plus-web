@@ -972,6 +972,20 @@ export const LoadingText = styled.p`
 `
 // FAQ
 
+export const FaqWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.homeText};
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease-in-out;
+  background-image: ${({ theme }) => theme.backgroundImage || "none"};
+  background-size: cover;
+  background-position: center;
+`;
 
 export const FaqSection = styled.main`
   max-width: 80rem;

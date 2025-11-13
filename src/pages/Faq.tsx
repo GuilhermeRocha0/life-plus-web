@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  HomeWrapper,
+  FaqWrapper,
   HomeHeader,
   HomeNav,
   HomeNavLink,
@@ -18,7 +18,7 @@ import {
 
 const Faq: React.FC = () => {
   return (
-    <HomeWrapper>
+    <FaqWrapper>
       <HomeHeader>
         <Logo to="/">Life+</Logo>
         <HomeNav>
@@ -65,7 +65,7 @@ const Faq: React.FC = () => {
       </FaqSection>
 
       <FooterNote>© 2025 Life+. Todos os direitos reservados.</FooterNote>
-    </HomeWrapper>
+    </FaqWrapper>
   );
 };
 
