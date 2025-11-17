@@ -15,13 +15,15 @@ interface ModalMessageProps {
   title?: string
   message: string
   onClose: () => void
+  disableClose?: boolean
 }
 
 const ModalMessage: React.FC<ModalMessageProps> = ({
   isOpen,
   title,
   message,
-  onClose
+  onClose,
+  disableClose = false
 }) => {
   if (!isOpen) return null
 
@@ -42,9 +44,12 @@ const ModalMessage: React.FC<ModalMessageProps> = ({
         <IconWrapper type={type}>
           {type === 'success' ? <CheckCircle /> : <XCircle />}
         </IconWrapper>
+
         {displayTitle && <TitleStyled type={type}>{displayTitle}</TitleStyled>}
+
         <Message>{message}</Message>
-        <CloseButton onClick={onClose}>Fechar</CloseButton>
+
+        {!disableClose && <CloseButton onClick={onClose}>Fechar</CloseButton>}
       </ModalContainer>
     </Overlay>
   )

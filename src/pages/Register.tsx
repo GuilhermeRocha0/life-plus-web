@@ -1,38 +1,113 @@
-import { CadastroContainer, Formulario, LoginText } from "../styles/Styles";
-import Background from "../components/Background";
+import React, { useState } from 'react'
+import { CadastroContainer, Formulario, LoginText } from '../styles/Styles'
+import Background from '../components/Background'
+import LoadingModal from '../components/LoadingModal'
+import ModalMessage from '../components/ModalMessage'
+import { useUser } from '../hooks/useUser'
 
-const Cadastro: React.FC = () => {
+const Register: React.FC = () => {
+  const { registerUser, loading, message, messageType, closeMessage } =
+    useUser()
+
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    birthDate: ''
+  })
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (form.password !== form.confirmPassword) {
+      return registerUser(
+        null,
+        'A senha e a confirmação não coincidem.',
+        'error'
+      )
+    }
+
+    await registerUser({
+      name: form.name,
+      email: form.email,
+      password: form.password,
+      confirmPassword: form.confirmPassword,
+      birthDate: form.birthDate
+    })
+  }
+
   return (
     <>
-    <Background />
-    <CadastroContainer>
-      <Formulario>
-        <h2>Criar Conta</h2>
-        <form>
-          <label htmlFor="nome">Nome Completo:</label>
-          <input id="nome" type="text" required />
+      <Background />
+      <LoadingModal isOpen={loading} />
 
-          <label htmlFor="email">E-mail:</label>
-          <input id="email" type="email" required />
+      <ModalMessage
+        isOpen={!!message}
+        title={messageType === 'error' ? 'Erro' : 'Sucesso'}
+        message={message || ''}
+        onClose={closeMessage}
+      />
 
-          <label htmlFor="senha">Senha:</label>
-          <input id="senha" type="password" required />
+      <CadastroContainer>
+        <Formulario>
+          <h2>Criar Conta</h2>
 
-          <label htmlFor="data">Data de Nascimento:</label>
-          <input id="data" type="date" required />
+          <form onSubmit={handleSubmit}>
+            <label>Nome Completo:</label>
+            <input
+              type="text"
+              value={form.name}
+              onChange={e => setForm({ ...form, name: e.target.value })}
+              required
+            />
 
-          <button type="submit">Cadastrar</button>
-        </form>
+            <label>E-mail:</label>
+            <input
+              type="email"
+              value={form.email}
+              onChange={e => setForm({ ...form, email: e.target.value })}
+              required
+            />
 
-        <LoginText>
-          Já tem uma conta? <a href="/login">Clique aqui</a>
-        </LoginText>
+            <label>Senha:</label>
+            <input
+              type="password"
+              value={form.password}
+              onChange={e => setForm({ ...form, password: e.target.value })}
+              required
+            />
 
-      </Formulario>
-    </CadastroContainer>
-    
+            <label>Confirmar Senha:</label>
+            <input
+              type="password"
+              value={form.confirmPassword}
+              onChange={e =>
+                setForm({ ...form, confirmPassword: e.target.value })
+              }
+              required
+            />
+
+            <label>Data de Nascimento:</label>
+            <input
+              type="date"
+              value={form.birthDate}
+              onChange={e => setForm({ ...form, birthDate: e.target.value })}
+              required
+            />
+
+            <button type="submit" disabled={loading}>
+              {loading ? 'Carregando...' : 'Cadastrar'}
+            </button>
+          </form>
+
+          <LoginText>
+            Já tem uma conta? <a href="/login">Clique aqui</a>
+          </LoginText>
+        </Formulario>
+      </CadastroContainer>
     </>
-  );
-};
+  )
+}
 
-export default Cadastro;
+export default Register
