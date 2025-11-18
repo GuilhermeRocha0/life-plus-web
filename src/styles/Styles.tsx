@@ -1159,6 +1159,10 @@ export const SectionText = styled.p`
 `
 
 export const ActionButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
   width: 16rem;
   padding: 1rem 2rem;
   font-size: 1.6rem;
@@ -1306,8 +1310,14 @@ export const DownloadButton = styled.button`
 
 export const TopActions = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin-bottom: 2rem;
+`
+
+export const BottomActions = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2rem;
 `
 
 const shimmer = keyframes`
@@ -1339,5 +1349,97 @@ export const ExamCardSkeleton = styled.div`
 
   @media only screen and (max-width: 767px) {
     width: 90%;
+  }
+`
+
+export const OptionsButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 16rem;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  background-color: ${({ theme }) => theme.buttonPrimary};
+  color: ${({ theme }) => theme.homeButtonPrimaryText};
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid ${({ theme }) => theme.text};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.buttonPrimaryHover};
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+`
+
+export const OptionsDropdownContainer = styled.div`
+  position: relative;
+  width: 16rem;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+`
+
+export const OptionsDropdown = styled.div`
+  position: absolute;
+  right: 0;
+  top: 4.8rem;
+
+  width: 16rem;
+  background: ${({ theme }) => theme.background};
+  border-radius: 0.8rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+
+  z-index: 10;
+  animation: fadeIn 0.15s ease;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`
+
+export const OptionsDropdownItem = styled.button`
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+
+  font-size: 1.5rem;
+  color: ${({ theme }) => theme.text};
+  transition: background 0.2s, color 0.2s;
+
+  &:hover,
+  &:focus-visible {
+    background: ${({ theme }) => theme.buttonPrimaryHover};
+    outline: none;
+  }
+
+  &.danger {
+    color: #d32f2f;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(211, 47, 47, 0.12);
+    }
   }
 `

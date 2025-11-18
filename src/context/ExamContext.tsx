@@ -49,6 +49,7 @@ export const ExamProvider = ({ children }: { children: React.ReactNode }) => {
     } catch (error: any) {
       setMessage(error?.response?.data?.erro || 'Erro ao criar exame')
       setMessageType('error')
+      throw error
     } finally {
       setLoading(false)
     }

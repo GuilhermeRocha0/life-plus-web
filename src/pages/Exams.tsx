@@ -4,6 +4,7 @@ import { useExam } from '../hooks/useExam'
 import MessageModal from '../components/MessageModal'
 import ExamCard from '../components/ExamCard'
 import ExamDetails from '../components/ExamDetails'
+import LoadingModal from '../components/LoadingModal'
 
 import {
   PageWrapper,
@@ -26,8 +27,9 @@ type ActiveSection = 'list' | 'create' | 'view' | null
 
 const Exams: React.FC = () => {
   const { exams, fetchExams, createExam, loading: contextLoading } = useExam()
+
   const [activeSection, setActiveSection] = useState<ActiveSection>('list')
-  const [loading, setLoading] = useState(false)
+  const [loadingCreate, setLoadingCreate] = useState(false)
   const [modalMessage, setModalMessage] = useState<{
     title?: string
     message: string
@@ -47,26 +49,40 @@ const Exams: React.FC = () => {
   })
 
   useEffect(() => {
-    fetchAllExams()
+    fetchExams()
   }, [])
 
-  const fetchAllExams = async () => {
-    setLoading(true)
-    try {
-      await fetchExams()
-    } catch (err: any) {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files ? Array.from(e.target.files) : []
+
+    const allowedTypes = [
+      'image/jpeg',
+      'image/jpg',
+      'image/png',
+      'application/pdf'
+    ]
+
+    const invalidFiles = files.filter(file => !allowedTypes.includes(file.type))
+
+    if (invalidFiles.length > 0) {
       setModalMessage({
-        title: 'Erro',
-        message: err.message || 'Erro ao buscar exames.'
+        title: 'Arquivo inválido',
+        message:
+          'Formato não permitido. Envie apenas arquivos JPG, JPEG, PNG ou PDF.'
       })
-    } finally {
-      setLoading(false)
+      return
     }
+
+    setExamData(prev => ({
+      ...prev,
+      files
+    }))
   }
 
   const handleCreateExamSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setLoading(true)
+    setLoadingCreate(true)
+
     try {
       await createExam(examData)
 
@@ -90,12 +106,14 @@ const Exams: React.FC = () => {
         message: err.message || 'Erro ao criar exame.'
       })
     } finally {
-      setLoading(false)
+      setLoadingCreate(false)
     }
   }
 
   const renderSection = () => {
-    if ((loading || contextLoading) && activeSection === 'list') {
+    const isLoadingList = contextLoading && activeSection === 'list'
+
+    if (isLoadingList) {
       return (
         <>
           <PageHeader>
@@ -115,6 +133,7 @@ const Exams: React.FC = () => {
       return (
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
           <PageTitle>Adicionar Novo Exame</PageTitle>
+
           <form onSubmit={handleCreateExamSubmit}>
             <InputGroup>
               <Label>Nome do Exame:</Label>
@@ -165,17 +184,14 @@ const Exams: React.FC = () => {
               <Input
                 type="file"
                 multiple
-                onChange={e =>
-                  setExamData({
-                    ...examData,
-                    files: e.target.files ? Array.from(e.target.files) : []
-                  })
-                }
+                accept=".jpg,.jpeg,.png,.pdf"
+                onChange={handleFileChange}
               />
             </InputGroup>
 
             <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
               <SubmitButton type="submit">Salvar</SubmitButton>
+
               <CancelButton
                 type="button"
                 onClick={() => setActiveSection('list')}
@@ -193,8 +209,8 @@ const Exams: React.FC = () => {
         <ExamDetails
           exam={selectedExam}
           onClose={() => {
-            setActiveSection('list')
             setSelectedExam(null)
+            setActiveSection('list')
           }}
         />
       )
@@ -204,6 +220,7 @@ const Exams: React.FC = () => {
       <>
         <PageHeader>
           <PageTitle>Meus Exames</PageTitle>
+
           <RegularAddButton onClick={() => setActiveSection('create')}>
             Adicionar Exame
           </RegularAddButton>
@@ -232,6 +249,7 @@ const Exams: React.FC = () => {
   return (
     <>
       <ResponsiveNavbar />
+
       <PageWrapper>{renderSection()}</PageWrapper>
 
       {modalMessage && (
@@ -242,6 +260,8 @@ const Exams: React.FC = () => {
           onClose={() => setModalMessage(null)}
         />
       )}
+
+      <LoadingModal isOpen={loadingCreate} />
     </>
   )
 }
