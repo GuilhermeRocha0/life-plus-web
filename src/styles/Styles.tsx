@@ -340,7 +340,7 @@ export const Buttons = styled.div`
 export const PrimaryButtonLink = styled(Link)`
   background: ${({ theme }) => theme.buttonPrimary};
   color: ${({ theme }) => theme.homeButtonPrimaryText};
-  padding: 1.2rem 2.4rem;
+  padding: 1.6rem 6rem;
   border-radius: 0.8rem;
   border: none;
   cursor: pointer;
