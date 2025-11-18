@@ -6,7 +6,7 @@ import React, {
   type FormEvent
 } from 'react'
 import { useNavigate } from 'react-router-dom'
-import ModalMessage from '../components/ModalMessage'
+import ModalMessage from '../components/MessageModal'
 import LoadingModal from '../components/LoadingModal'
 import {
   ResetPasswordPage,

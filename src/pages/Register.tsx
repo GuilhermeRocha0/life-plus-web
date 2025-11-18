@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CadastroContainer, Formulario, LoginText } from '../styles/Styles'
 import Background from '../components/Background'
 import LoadingModal from '../components/LoadingModal'
-import ModalMessage from '../components/ModalMessage'
+import ModalMessage from '../components/MessageModal'
 import { useAuth } from '../hooks/useAuth'
 
 const Register: React.FC = () => {
@@ -31,6 +31,14 @@ const Register: React.FC = () => {
       password: form.password,
       confirmPassword: form.confirmPassword,
       birthDate: form.birthDate
+    })
+
+    setForm({
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      birthDate: ''
     })
   }
 

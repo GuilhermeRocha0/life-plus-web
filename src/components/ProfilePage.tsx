@@ -27,6 +27,7 @@ export interface UserProfile {
   fullName: string
   avatarUrl?: string
   email?: string
+  birthDate?: string
   cautions?: string
   medicine?: string
   joinedAt?: string
@@ -41,6 +42,7 @@ export default function ProfilePage({ user }: { user?: any }) {
         id: user._id,
         fullName: user.name,
         email: user.email,
+        birthDate: user.birthDate || '',
         cautions: user.cautions ?? '',
         medicine: user.medicines ?? '',
         avatarUrl: user.avatar ?? defaultAvatar,

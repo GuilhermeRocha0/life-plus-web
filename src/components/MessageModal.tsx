@@ -10,7 +10,7 @@ import {
   CloseButton
 } from '../styles/Styles'
 
-interface ModalMessageProps {
+interface MessageModalProps {
   isOpen: boolean
   title?: string
   message: string
@@ -18,7 +18,7 @@ interface ModalMessageProps {
   disableClose?: boolean
 }
 
-const ModalMessage: React.FC<ModalMessageProps> = ({
+const MessageModal: React.FC<MessageModalProps> = ({
   isOpen,
   title,
   message,
@@ -55,4 +55,4 @@ const ModalMessage: React.FC<ModalMessageProps> = ({
   )
 }
 
-export default ModalMessage
+export default MessageModal

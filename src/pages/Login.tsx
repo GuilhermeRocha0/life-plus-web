@@ -4,7 +4,7 @@ import Background from '../components/Background'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import LoadingModal from '../components/LoadingModal'
-import ModalMessage from '../components/ModalMessage'
+import ModalMessage from '../components/MessageModal'
 
 const Login: React.FC = () => {
   const { login, loading, message, messageType, loginSuccess, closeMessage } =

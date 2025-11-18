@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import {
   Navbar,
+  LogoContainer,
   Logo,
   MenuLinks,
   MenuItem,
   StyledLink,
   Hamburger,
-  LogOutMenuItem
+  LogOutButton,
+  MenuDivider
 } from '../styles/Styles'
 import { useAuth } from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
@@ -26,9 +28,11 @@ const ResponsiveNavbar: React.FC = () => {
 
   return (
     <Navbar>
-      <Logo to="/">
-        <StyledLink to="/">Life+</StyledLink>
-      </Logo>
+      <LogoContainer>
+        <Logo to="/">
+          <StyledLink to="/">Life+</StyledLink>
+        </Logo>
+      </LogoContainer>
       <Hamburger
         onClick={toggleMenu}
         isOpen={menuOpen}
@@ -39,27 +43,32 @@ const ResponsiveNavbar: React.FC = () => {
         <div />
       </Hamburger>
       <MenuLinks isOpen={menuOpen}>
-        <MenuItem>
-          <StyledLink to="/perfil" onClick={() => setMenuOpen(false)}>
-            Perfil
-          </StyledLink>
-        </MenuItem>
-        <MenuItem>
-          <StyledLink to="/exames" onClick={() => setMenuOpen(false)}>
-            Exames
-          </StyledLink>
-        </MenuItem>
-        <MenuItem>
-          <StyledLink to="/remedios" onClick={() => setMenuOpen(false)}>
-            Remédios
-          </StyledLink>
-        </MenuItem>
+        <MenuDivider>
+          <MenuItem>
+            <StyledLink to="/perfil" onClick={() => setMenuOpen(false)}>
+              Perfil
+            </StyledLink>
+          </MenuItem>
+          <MenuItem>
+            <StyledLink to="/exames" onClick={() => setMenuOpen(false)}>
+              Exames
+            </StyledLink>
+          </MenuItem>
+          <MenuItem>
+            <StyledLink to="/remedios" onClick={() => setMenuOpen(false)}>
+              Remédios
+            </StyledLink>
+          </MenuItem>
+        </MenuDivider>
 
-        {user && (
-          <LogOutMenuItem onClick={handleLogout}>
-            <span style={{ cursor: 'pointer', color: 'white' }}>Sair</span>
-          </LogOutMenuItem>
-        )}
+        <MenuDivider>
+          <MenuItem>
+            <StyledLink to="/configuracoes" onClick={() => setMenuOpen(false)}>
+              Configurações
+            </StyledLink>
+          </MenuItem>
+          {user && <LogOutButton onClick={handleLogout}>Sair</LogOutButton>}
+        </MenuDivider>
       </MenuLinks>
     </Navbar>
   )

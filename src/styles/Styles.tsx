@@ -29,11 +29,13 @@ export const Navbar = styled.nav`
     border-bottom-right-radius: 0;
   }
 `
+export const LogoContainer = styled.div`
+  padding-left: 1.6rem;
+`
 
 export const Logo = styled(Link)`
   font-size: 3.2rem;
   font-weight: bold;
-  text-align: center;
   color: #fff;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
@@ -51,13 +53,13 @@ export const Logo = styled(Link)`
 
 export const MenuLinks = styled.ul<{ isOpen: boolean }>`
   list-style: none;
-  padding: 0 0 0 45px;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.6rem;
   flex-grow: 1;
   margin-top: 3.2rem;
+  justify-content: space-between;
 
   @media only screen and (max-width: 960px) {
     position: fixed;
@@ -77,6 +79,12 @@ export const MenuLinks = styled.ul<{ isOpen: boolean }>`
   }
 `
 
+export const MenuDivider = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`
+
 export const MenuItem = styled.li`
   cursor: pointer;
   transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -91,13 +99,13 @@ export const MenuItem = styled.li`
   }
 `
 
-export const LogOutMenuItem = styled.li`
+export const LogOutButton = styled.li`
   cursor: pointer;
   transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
   font-size: 1.8rem;
   transform-origin: left center;
   background-color: #ff4d4d;
-  padding: 1.6rem 2.4rem;
+  padding: 1rem 2.4rem;
   border-radius: 0.8rem;
   justify-self: end;
 
@@ -1026,4 +1034,146 @@ export const Answer = styled.p`
   line-height: 1.5;
   color: ${({ theme }) => theme.homeText};
   opacity: 0.9;
+`
+
+export const SettingsContainer = styled.div`
+  display: flex;
+  min-height: 100vh;
+  background-color: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
+  font-family: 'Roboto', sans-serif;
+`
+
+export const SettingsMenu = styled.div`
+  width: 25rem;
+  background-color: ${({ theme }) => theme.secondaryBackground};
+  padding: 2.4rem;
+  padding-left: 3.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  border-right: 0.1rem solid ${({ theme }) => theme.border};
+  margin-left: -3.6rem;
+  margin-top: -2.4rem;
+`
+
+export const SettingsContent = styled.div`
+  flex: 1;
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+`
+
+export const MenuButton = styled.button`
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
+  font-size: 1.6rem;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: left;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.buttonPrimaryHover};
+  }
+`
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.6rem;
+`
+
+export const Label = styled.label`
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+`
+
+export const Input = styled.input`
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  border: 0.1rem solid ${({ theme }) => theme.border};
+  border-radius: 0.8rem;
+  outline: none;
+  color: ${({ theme }) => theme.textPrimary};
+
+  &:focus {
+    border-color: ${({ theme }) => theme.primary};
+  }
+`
+
+export const SubmitButton = styled.button`
+  padding: 1.2rem 2.4rem;
+  font-size: 1.6rem;
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  margin-right: 1.6rem;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.buttonPrimaryHover};
+  }
+`
+
+export const CancelButton = styled.button`
+  padding: 1.2rem 2.4rem;
+  font-size: 1.6rem;
+  background-color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.text};
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.secondaryHover};
+  }
+`
+
+export const SettingsRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem;
+  background-color: ${({ theme }) => theme.backgroundSecondary};
+  border-radius: 0.8rem;
+  margin-bottom: 1.6rem;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+`
+
+export const SectionText = styled.p`
+  font-size: 1.4rem;
+  color: ${({ theme }) => theme.textSecondary};
+  margin-top: 0.4rem;
+`
+
+export const ActionButton = styled.button`
+  width: 16rem;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.buttonPrimaryHover};
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
