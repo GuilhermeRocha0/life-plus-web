@@ -104,6 +104,10 @@ const Register: React.FC = () => {
           <LoginText>
             Já tem uma conta? <a href="/login">Clique aqui</a>
           </LoginText>
+
+          <LoginText>
+            <a href="/">Voltar para a Home</a>
+          </LoginText>
         </Formulario>
       </CadastroContainer>
     </>

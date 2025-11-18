@@ -77,6 +77,10 @@ const Login: React.FC = () => {
           <CadastroLink>
             Não tem uma conta? <Link to="/cadastro">Crie aqui</Link>
           </CadastroLink>
+
+          <CadastroLink>
+            <Link to="/">Voltar para a Home</Link>
+          </CadastroLink>
         </Formulario>
       </LoginContainer>
     </>
