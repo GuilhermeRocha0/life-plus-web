@@ -29,9 +29,7 @@ const ResponsiveNavbar: React.FC = () => {
   return (
     <Navbar>
       <LogoContainer>
-        <Logo to="/">
-          <StyledLink to="/">Life+</StyledLink>
-        </Logo>
+        <Logo to="/">Life+</Logo>
       </LogoContainer>
       <Hamburger
         onClick={toggleMenu}

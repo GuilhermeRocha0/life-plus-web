@@ -8,6 +8,7 @@ import UserWayWidget from './components/UserWayWidget'
 import { GlobalStyles } from './styles/GlobalStyles'
 import { AuthProvider } from './context/AuthContext'
 import { UserProvider } from './context/UserContext' // <- import do UserProvider
+import { ExamProvider } from './context/ExamContext'
 
 const App: React.FC = () => {
   const [isDark, setIsDark] = useState<boolean>(() => {
@@ -27,9 +28,11 @@ const App: React.FC = () => {
       <BrowserRouter>
         <AuthProvider>
           <UserProvider>
-            <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
-            <UserWayWidget />
-            <Routes />
+            <ExamProvider>
+              <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
+              <UserWayWidget />
+              <Routes />
+            </ExamProvider>
           </UserProvider>
         </AuthProvider>
       </BrowserRouter>

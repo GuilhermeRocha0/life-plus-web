@@ -191,7 +191,7 @@ export const PageHeader = styled.div`
 export const PageTitle = styled.h1`
   font-size: 3.2rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.homeText};
+  color: ${({ theme }) => theme.text};
 
   @media only screen and (max-width: 767px) {
     font-size: 2.8rem;
@@ -1175,5 +1175,29 @@ export const ActionButton = styled.button`
 
   @media (max-width: 767px) {
     width: 100%;
+  }
+`
+
+export const Textarea = styled.textarea`
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical; /* permite redimensionar verticalmente */
+  min-height: 80px;
+  max-height: 200px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: none;
+
+  &:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
   }
 `
