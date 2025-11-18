@@ -82,6 +82,24 @@ export const MenuItem = styled.li`
   transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
   font-size: 1.8rem;
   transform-origin: left center;
+  padding-inline: 1.6rem;
+
+  &:hover {
+    filter: brightness(1.5);
+    transform: scale(1.1);
+    font-weight: 500;
+  }
+`
+
+export const LogOutMenuItem = styled.li`
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  font-size: 1.8rem;
+  transform-origin: left center;
+  background-color: #ff4d4d;
+  padding: 1.6rem 2.4rem;
+  border-radius: 0.8rem;
+  justify-self: end;
 
   &:hover {
     filter: brightness(1.5);

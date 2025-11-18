@@ -5,13 +5,24 @@ import {
   MenuLinks,
   MenuItem,
   StyledLink,
-  Hamburger
+  Hamburger,
+  LogOutMenuItem
 } from '../styles/Styles'
+import { useAuth } from '../hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
 
 const ResponsiveNavbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
+  const { user, logout } = useAuth()
+  const navigate = useNavigate()
 
   const toggleMenu = () => setMenuOpen(prev => !prev)
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+    setMenuOpen(false)
+  }
 
   return (
     <Navbar>
@@ -43,6 +54,12 @@ const ResponsiveNavbar: React.FC = () => {
             Remédios
           </StyledLink>
         </MenuItem>
+
+        {user && (
+          <LogOutMenuItem onClick={handleLogout}>
+            <span style={{ cursor: 'pointer', color: 'white' }}>Sair</span>
+          </LogOutMenuItem>
+        )}
       </MenuLinks>
     </Navbar>
   )
