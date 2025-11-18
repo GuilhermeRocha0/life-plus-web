@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import ResponsiveNavbar from '../components/ResponsiveNavbar'
 import { useExam } from '../hooks/useExam'
-import LoadingModal from '../components/LoadingModal'
 import MessageModal from '../components/MessageModal'
 import ExamCard from '../components/ExamCard'
+import ExamDetails from '../components/ExamDetails'
+
 import {
   PageWrapper,
   PageTitle,
@@ -15,10 +16,13 @@ import {
   SubmitButton,
   CancelButton,
   ExamsGrid,
-  PageHeader
+  PageHeader,
+  ExamCardSkeleton
 } from '../styles/Styles'
 
-type ActiveSection = 'list' | 'create' | null
+import * as examService from '../services/examService'
+
+type ActiveSection = 'list' | 'create' | 'view' | null
 
 const Exams: React.FC = () => {
   const { exams, fetchExams, createExam, loading: contextLoading } = useExam()
@@ -29,6 +33,10 @@ const Exams: React.FC = () => {
     message: string
     disableClose?: boolean
   } | null>(null)
+
+  const [selectedExam, setSelectedExam] = useState<examService.Exam | null>(
+    null
+  )
 
   const [examData, setExamData] = useState({
     name: '',
@@ -87,6 +95,22 @@ const Exams: React.FC = () => {
   }
 
   const renderSection = () => {
+    if ((loading || contextLoading) && activeSection === 'list') {
+      return (
+        <>
+          <PageHeader>
+            <PageTitle>Meus Exames</PageTitle>
+          </PageHeader>
+
+          <ExamsGrid>
+            {Array.from({ length: 6 }).map((_, i) => (
+              <ExamCardSkeleton key={i} />
+            ))}
+          </ExamsGrid>
+        </>
+      )
+    }
+
     if (activeSection === 'create') {
       return (
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
@@ -103,6 +127,7 @@ const Exams: React.FC = () => {
                 required
               />
             </InputGroup>
+
             <InputGroup>
               <Label>Descrição:</Label>
               <Textarea
@@ -112,6 +137,7 @@ const Exams: React.FC = () => {
                 }
               />
             </InputGroup>
+
             <InputGroup>
               <Label>Data do Exame:</Label>
               <Input
@@ -123,6 +149,7 @@ const Exams: React.FC = () => {
                 required
               />
             </InputGroup>
+
             <InputGroup>
               <Label>Resultado:</Label>
               <Textarea
@@ -132,6 +159,7 @@ const Exams: React.FC = () => {
                 }
               />
             </InputGroup>
+
             <InputGroup>
               <Label>Fotos do Exame:</Label>
               <Input
@@ -145,6 +173,7 @@ const Exams: React.FC = () => {
                 }
               />
             </InputGroup>
+
             <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
               <SubmitButton type="submit">Salvar</SubmitButton>
               <CancelButton
@@ -159,7 +188,17 @@ const Exams: React.FC = () => {
       )
     }
 
-    if (!exams) return <p>Carregando exames...</p>
+    if (activeSection === 'view' && selectedExam) {
+      return (
+        <ExamDetails
+          exam={selectedExam}
+          onClose={() => {
+            setActiveSection('list')
+            setSelectedExam(null)
+          }}
+        />
+      )
+    }
 
     return (
       <>
@@ -175,7 +214,14 @@ const Exams: React.FC = () => {
         ) : (
           <ExamsGrid>
             {exams.map(exam => (
-              <ExamCard key={exam.id} exam={exam} />
+              <ExamCard
+                key={exam.id}
+                exam={exam}
+                onView={exam => {
+                  setSelectedExam(exam)
+                  setActiveSection('view')
+                }}
+              />
             ))}
           </ExamsGrid>
         )}
@@ -187,8 +233,6 @@ const Exams: React.FC = () => {
     <>
       <ResponsiveNavbar />
       <PageWrapper>{renderSection()}</PageWrapper>
-
-      <LoadingModal isOpen={loading || contextLoading} />
 
       {modalMessage && (
         <MessageModal

@@ -1201,3 +1201,143 @@ export const Textarea = styled.textarea`
     cursor: not-allowed;
   }
 `
+
+export const ExamFilesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  margin-top: 2rem;
+  justify-content: flex-start;
+`
+
+export const ExamDetailsInfo = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-top: 2rem;
+  justify-content: flex-start;
+`
+
+export const ExamInfoGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-right: 1.6rem;
+`
+
+export const ExamInfoGroupLabel = styled.label`
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+`
+
+export const StyledExamFile = styled.div<{ clickable?: boolean }>`
+  width: 24rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+
+  background-color: ${props => (props.clickable ? '#f9f9f9' : '#fafafa')};
+  border: 1px solid ${props => (props.clickable ? '#ccc' : '#eee')};
+  cursor: ${props => (props.clickable ? 'pointer' : 'default')};
+  transition: background-color 0.2s, transform 0.2s;
+
+  &:hover {
+    background-color: ${props => (props.clickable ? '#eaeaea' : '#fafafa')};
+    transform: ${props => (props.clickable ? 'scale(1.03)' : 'none')};
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+export const ImageFile = styled.img`
+  height: 18rem;
+  width: 18rem;
+
+  border-radius: 10px;
+  object-fit: cover;
+`
+
+export const FileName = styled.span`
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 0.8rem;
+  word-break: break-word;
+  text-align: center;
+`
+
+export const DownloadButton = styled.button`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+  padding: 1.6rem 1.2rem;
+  border: none;
+  border-radius: 0.8rem;
+  background-color: #4f46e5;
+  color: white;
+  font-weight: 500;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+
+  &:hover {
+    background-color: #4338ca;
+    transform: scale(1.05);
+  }
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+`
+
+export const TopActions = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+`
+
+const shimmer = keyframes`
+  0% {
+    background-position: -300px 0;
+  }
+  100% {
+    background-position: 300px 0;
+  }
+`
+
+export const ExamDetailImageSkeleton = styled.div`
+  width: 14rem;
+  height: 14rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #e0e0e0 0px, #ececec 8rem, #e0e0e0 16rem);
+  background-size: 40rem 100%;
+  animation: ${shimmer} 1.4s ease-in-out infinite;
+`
+
+export const ExamCardSkeleton = styled.div`
+  width: 22rem;
+  height: 130px;
+  border-radius: 1.6rem;
+  background: linear-gradient(90deg, #e3e3e3 0px, #f0f0f0 80px, #e3e3e3 160px);
+  background-size: 400px 100%;
+  animation: ${shimmer} 1.4s ease-in-out infinite;
+  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.05);
+
+  @media only screen and (max-width: 767px) {
+    width: 90%;
+  }
+`

@@ -11,6 +11,8 @@ interface ExamContextType {
   createExam: (data: examService.CreateExamData) => Promise<void>
   updateExam: (id: string, data: examService.UpdateExamData) => Promise<void>
   deleteExam: (id: string) => Promise<void>
+  getExamPhoto: (photoId: string) => Promise<Blob>
+  downloadExamPhoto: (photoId: string, fileName: string) => Promise<void>
   closeMessage: () => void
 }
 
@@ -82,6 +84,36 @@ export const ExamProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
+  const getExamPhoto = async (photoId: string): Promise<Blob> => {
+    try {
+      const data = await examService.getExamPhotoById(photoId)
+      return data
+    } catch (err: any) {
+      setMessage(err?.response?.data?.erro || 'Erro ao buscar foto')
+      setMessageType('error')
+      throw err
+    }
+  }
+
+  const downloadExamPhoto = async (photoId: string, fileName: string) => {
+    try {
+      const blob = await examService.downloadExamPhoto(photoId)
+
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = fileName
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      URL.revokeObjectURL(url)
+    } catch (err: any) {
+      setMessage(err?.response?.data?.erro || 'Erro ao baixar arquivo')
+      setMessageType('error')
+      throw err
+    }
+  }
+
   const closeMessage = () => {
     setMessage(null)
     setMessageType(null)
@@ -102,6 +134,8 @@ export const ExamProvider = ({ children }: { children: React.ReactNode }) => {
         createExam,
         updateExam,
         deleteExam,
+        getExamPhoto,
+        downloadExamPhoto,
         closeMessage
       }}
     >

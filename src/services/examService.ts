@@ -88,3 +88,11 @@ export const getExamPhotoById = async (photoId: string) => {
   })
   return response.data
 }
+
+export const downloadExamPhoto = async (photoId: string) => {
+  const response = await api.get(`/exams/photos/${photoId}`, {
+    responseType: 'blob'
+  })
+
+  return response.data
+}

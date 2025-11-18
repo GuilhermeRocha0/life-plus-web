@@ -12,9 +12,10 @@ import * as examService from '../services/examService'
 
 interface ExamCardProps {
   exam: examService.Exam
+  onView: (exam: examService.Exam) => void
 }
 
-const ExamCard: React.FC<ExamCardProps> = ({ exam }) => {
+const ExamCard: React.FC<ExamCardProps> = ({ exam, onView }) => {
   return (
     <StyledExamCard>
       <ExamIcon>?</ExamIcon>
@@ -24,7 +25,7 @@ const ExamCard: React.FC<ExamCardProps> = ({ exam }) => {
           {exam.date ? new Date(exam.date).toLocaleDateString() : 'Sem data'}
         </ExamInfoText>
       </ExamInfo>
-      <ViewButton>Visualizar</ViewButton>
+      <ViewButton onClick={() => onView(exam)}>Visualizar</ViewButton>
     </StyledExamCard>
   )
 }
