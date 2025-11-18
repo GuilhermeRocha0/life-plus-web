@@ -1,7 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 
-
 // Navbar
 export const Navbar = styled.nav`
   background: linear-gradient(to bottom, #00c6ff, #0072ff);
@@ -26,7 +25,6 @@ export const Navbar = styled.nav`
     width: 100%;
     height: 6rem;
     padding: 2.4rem 1.6rem;
-    position: relative;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -151,6 +149,10 @@ export const PageWrapper = styled.div`
   @media only screen and (min-width: 960px) {
     margin-left: 24rem;
   }
+
+  @media only screen and (max-width: 960px) {
+    margin-top: 7.2rem;
+  }
 `
 
 export const PageHeader = styled.div`
@@ -262,22 +264,22 @@ export const HomeWrapper = styled.div`
   color: ${({ theme }) => theme.homeText};
   font-family: Arial, sans-serif;
   transition: all 0.3s ease-in-out;
-  background-image: ${({ theme }) => theme.backgroundImage || "none"};
+  background-image: ${({ theme }) => theme.backgroundImage || 'none'};
   background-size: cover;
   background-position: center;
-`;
+`
 
 export const HomeHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem 5rem;
-`;
+`
 
 export const HomeLogo = styled.h1`
   font-size: 3rem;
   font-weight: bold;
-`;
+`
 
 export const HomeNav = styled.nav`
   display: flex;
@@ -287,7 +289,7 @@ export const HomeNav = styled.nav`
   @media only screen and (max-width: 768px) {
     gap: 0.6rem;
   }
-`;
+`
 
 export const HomeNavLink = styled(Link)`
   padding: 1.2rem 2.4rem;
@@ -308,32 +310,32 @@ export const HomeNavLink = styled(Link)`
   @media only screen and (max-width: 425px) {
     display: none;
   }
-`;
+`
 
 export const MainSection = styled.main`
   text-align: center;
   max-width: 80rem;
   margin: auto;
   padding: 2rem;
-`;
+`
 
 export const MainTitle = styled.h2`
   font-size: 5.6rem;
   font-weight: bold;
   margin-bottom: 2rem;
-`;
+`
 
 export const MainText = styled.p`
   font-size: 2rem;
   margin-bottom: 3rem;
-`;
+`
 
 export const Buttons = styled.div`
   display: flex;
   justify-content: center;
   gap: 1.6rem;
   outline: none;
-`;
+`
 
 export const PrimaryButtonLink = styled(Link)`
   background: ${({ theme }) => theme.buttonPrimary};
@@ -350,7 +352,7 @@ export const PrimaryButtonLink = styled(Link)`
     filter: brightness(0.8);
     transform: scale(1.05);
   }
-`;
+`
 
 export const OutlineButtonLink = styled(Link)`
   background: transparent;
@@ -367,15 +369,14 @@ export const OutlineButtonLink = styled(Link)`
     background: ${({ theme }) => theme.buttonOutlineHover};
     transform: scale(1.05);
   }
-`;
+`
 
 export const FooterNote = styled.footer`
   text-align: center;
   padding: 1.6rem;
   font-size: 1.1rem;
   background: transparent;
-`;
-
+`
 
 // Login
 
@@ -387,15 +388,15 @@ export const LoginContainer = styled.div`
   justify-content: center;
   background-size: cover;
   padding: 3.2rem;
-`;
+`
 
-export const CadastroContainer = styled(LoginContainer)``;
+export const CadastroContainer = styled(LoginContainer)``
 
 export const Formulario = styled.div`
   background: ${({ theme }) =>
-    theme.background === "#121212"
-      ? "rgba(30, 30, 30, 0.95)"
-      : "rgba(255, 255, 255, 0.95)"};
+    theme.background === '#121212'
+      ? 'rgba(30, 30, 30, 0.95)'
+      : 'rgba(255, 255, 255, 0.95)'};
   padding: 3.2rem;
   border-radius: 2rem;
   width: 50rem;
@@ -429,12 +430,11 @@ export const Formulario = styled.div`
     padding: 1.4rem;
     margin-bottom: 1rem;
     border: 0.1rem solid
-      ${({ theme }) =>
-        theme.background === "#121212" ? "#444" : "#ccc"};
+      ${({ theme }) => (theme.background === '#121212' ? '#444' : '#ccc')};
     border-radius: 1.2rem;
     font-size: 1.6rem;
     background: ${({ theme }) =>
-      theme.background === "#121212" ? "#2b2b2b" : "#fff"};
+      theme.background === '#121212' ? '#2b2b2b' : '#fff'};
     color: ${({ theme }) => theme.text};
     outline: none;
   }
@@ -461,7 +461,7 @@ export const Formulario = styled.div`
     box-shadow: none;
     width: 30rem;
   }
-`;
+`
 
 export const CadastroLink = styled.p`
   margin-top: 1rem;
@@ -479,7 +479,7 @@ export const CadastroLink = styled.p`
       filter: brightness(1.2);
     }
   }
-`;
+`
 
 export const BackgroundVideo = styled.video`
   position: fixed;
@@ -490,7 +490,7 @@ export const BackgroundVideo = styled.video`
   object-fit: cover;
   filter: contrast(1.15) brightness(0.9) saturate(1.1);
   transition: opacity 0.5s ease-in-out;
-`;
+`
 
 // Container geral da página
 export const ProfileContainer = styled.div`
@@ -499,7 +499,7 @@ export const ProfileContainer = styled.div`
   justify-content: center;
   padding: 3rem 2rem;
   background: ${({ theme }) => theme.background};
-`;
+`
 
 // Card central
 export const ProfileCard = styled.div`
@@ -511,7 +511,7 @@ export const ProfileCard = styled.div`
   overflow: hidden;
   transition: all 0.3s ease;
   border: 1px solid ${({ theme }) => theme.border};
-`;
+`
 export const ExamsTag = styled.span`
   background: ${({ theme }) => theme.buttonOutlineHover};
   padding: 0.6rem 1.2rem;
@@ -520,13 +520,13 @@ export const ExamsTag = styled.span`
   color: ${({ theme }) => theme.text};
   margin-bottom: 1.6rem;
   display: inline-block;
-`;
+`
 export const ExamsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-top: 1rem;
-`;
+`
 // Cabeçalho (foto + infos)
 export const ProfileHeader = styled.div`
   display: flex;
@@ -534,7 +534,7 @@ export const ProfileHeader = styled.div`
   gap: 2.4rem;
   padding: 3rem;
   border-bottom: 1px solid ${({ theme }) => theme.border};
-`;
+`
 
 export const MedicineList = styled.ul`
   list-style: disc;
@@ -545,23 +545,23 @@ export const MedicineList = styled.ul`
   li {
     margin-bottom: 0.6rem;
   }
-`;
+`
 
 export const ProfileDetails = styled.div`
   margin-top: 1.6rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
-  font-size: 1.1rem;
+  row-gap: 1.2rem;
+  font-size: 1.4rem;
   color: ${({ theme }) => theme.text};
-`;
+`
 export const MedicinesListHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.text};
-`;
+`
 export const LoginText = styled.p`
   margin-top: 1rem;
   text-align: center;
@@ -578,57 +578,57 @@ export const LoginText = styled.p`
       color: ${({ theme }) => theme.buttonPrimaryHover};
     }
   }
-`;
+`
 export const ProfileAvatar = styled.img`
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid ${({ theme }) => theme.primary};
-`;
+`
 
 export const ProfileInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-`;
+`
 
 export const ProfileName = styled.h1`
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: ${({ theme }) => theme.text};
   font-weight: 700;
-`;
+`
 
 export const ProfileJob = styled.p`
   font-size: 1.3rem;
   color: ${({ theme }) => theme.textSecondary};
-`;
+`
 
 export const ProfileCautions = styled.p`
   margin-top: 1rem;
   font-size: 1.2rem;
   color: ${({ theme }) => theme.textSecondary};
-`;
+`
 
 // Seções de conteúdo
 export const AboutSection = styled.div`
   padding: 2.4rem 3rem;
-`;
+`
 
 export const SectionTitle = styled.h2`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: ${({ theme }) => theme.text};
   margin-bottom: 1rem;
   border-left: 4px solid ${({ theme }) => theme.primary};
   padding-left: 1rem;
-`;
+`
 
 export const SectionContent = styled.div`
   font-size: 1.3rem;
   color: ${({ theme }) => theme.textSecondary};
   line-height: 1.6;
-`;
+`
 
 // Estatísticas
 export const StatsWrapper = styled.div`
@@ -636,7 +636,7 @@ export const StatsWrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: 1.6rem;
   padding: 2rem 3rem;
-`;
+`
 
 export const StatCard = styled.div`
   background: ${({ theme }) => theme.buttonPrimary};
@@ -648,18 +648,18 @@ export const StatCard = styled.div`
   &:hover {
     transform: translateY(-4px);
   }
-`;
+`
 
 export const StatLabel = styled.p`
   font-size: 1.3rem;
   color: ${({ theme }) => theme.textSecondary};
-`;
+`
 
 export const StatValue = styled.h3`
   font-size: 2rem;
   font-weight: 700;
   margin-top: 0.4rem;
-`;
+`
 
 // 🔹 Remédios
 export const MedicinesContainer = styled.div`
@@ -668,7 +668,7 @@ export const MedicinesContainer = styled.div`
   justify-content: center;
   padding: 3rem 2rem;
   background: ${({ theme }) => theme.background};
-`;
+`
 
 export const MedicinesCard = styled.div`
   width: 100%;
@@ -677,7 +677,7 @@ export const MedicinesCard = styled.div`
   border-radius: 2rem;
   padding: 2.4rem;
   box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.08);
-`;
+`
 
 export const MedicinesHeader = styled.div`
   display: flex;
@@ -690,13 +690,13 @@ export const MedicinesHeader = styled.div`
     font-weight: 700;
     color: ${({ theme }) => theme.text};
   }
-`;
+`
 
 export const MedicinesList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-`;
+`
 
 export const MedicineItem = styled.div`
   display: flex;
@@ -706,7 +706,7 @@ export const MedicineItem = styled.div`
   padding: 1.2rem 1.6rem;
   border-radius: 1.2rem;
   border: 1px solid ${({ theme }) => theme.border};
-`;
+`
 
 export const MedicineInfo = styled.div`
   h3 {
@@ -717,7 +717,7 @@ export const MedicineInfo = styled.div`
   p {
     color: ${({ theme }) => theme.textSecondary};
   }
-`;
+`
 
 export const BtnAdd = styled.button`
   background: ${({ theme }) => theme.primary};
@@ -732,7 +732,7 @@ export const BtnAdd = styled.button`
   &:hover {
     opacity: 0.9;
   }
-`;
+`
 
 export const BtnStatus = styled.button<{ taken: boolean }>`
   background: ${({ taken, theme }) => (taken ? theme.success : theme.error)};
@@ -746,7 +746,7 @@ export const BtnStatus = styled.button<{ taken: boolean }>`
   &:hover {
     opacity: 0.9;
   }
-`;
+`
 // Reset Password styles
 
 export const ResetPasswordPage = styled.div`
@@ -757,7 +757,7 @@ export const ResetPasswordPage = styled.div`
   align-items: center;
   padding: 1.6rem;
   transition: background-color 0.3s ease;
-`;
+`
 
 export const ResetPasswordContainer = styled.div`
   background-color: ${({ theme }) => theme.cardBackground};
@@ -771,14 +771,14 @@ export const ResetPasswordContainer = styled.div`
   @media (max-width: 480px) {
     padding: 2.4rem;
   }
-`;
+`
 
 export const ResetPasswordTitle = styled.h2`
   margin-bottom: 2.4rem;
   text-align: center;
   font-size: 2.8rem;
   color: ${({ theme }) => theme.textPrimary};
-`;
+`
 
 export const ResetPasswordForm = styled.form`
   display: flex;
@@ -790,7 +790,7 @@ export const ResetPasswordForm = styled.form`
     font-size: 1.6rem;
     color: ${({ theme }) => theme.textSecondary};
   }
-`;
+`
 
 export const ResetPasswordInput = styled.input`
   border: 0.1rem solid ${({ theme }) => theme.inputBorder};
@@ -812,14 +812,14 @@ export const ResetPasswordInput = styled.input`
   &::placeholder {
     color: ${({ theme }) => theme.textPlaceholder};
   }
-`;
+`
 
 export const ResetPasswordCodeContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 0.8rem;
   margin: 1.2rem 0;
-`;
+`
 
 export const ResetPasswordCodeInput = styled(ResetPasswordInput)`
   padding: 1.2rem;
@@ -834,7 +834,7 @@ export const ResetPasswordCodeInput = styled(ResetPasswordInput)`
     font-size: 1.8rem;
     padding: 1rem;
   }
-`;
+`
 
 export const ResetPasswordButton = styled.button`
   background-color: ${({ theme }) => theme.primary};
@@ -851,7 +851,7 @@ export const ResetPasswordButton = styled.button`
     background-color: ${({ theme }) => theme.buttonPrimaryHover};
     transform: scale(1.03);
   }
-`;
+`
 
 export const ResetPasswordCancel = styled.button`
   background-color: ${({ theme }) => theme.buttonSecondary};
@@ -868,7 +868,7 @@ export const ResetPasswordCancel = styled.button`
     background-color: ${({ theme }) => theme.buttonSecondaryHover};
     transform: scale(1.03);
   }
-`;
+`
 
 // Modal styles
 export const Overlay = styled.div`
@@ -957,7 +957,6 @@ export const LoadingText = styled.p`
 `
 // FAQ
 
-
 export const FaqSection = styled.main`
   max-width: 80rem;
   margin: auto;
@@ -970,20 +969,20 @@ export const FaqSection = styled.main`
   @media only screen and (max-width: 768px) {
     padding: 2rem 1.5rem;
   }
-`;
+`
 
 export const FaqTitle = styled.h2`
   font-size: 4rem;
   text-align: center;
   font-weight: bold;
   margin-bottom: 2rem;
-`;
+`
 
 export const FaqList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-`;
+`
 
 export const FaqItem = styled.div`
   background: rgba(255, 255, 255, 0.1);
@@ -995,18 +994,18 @@ export const FaqItem = styled.div`
     transform: scale(1.02);
     background: rgba(255, 255, 255, 0.15);
   }
-`;
+`
 
 export const Question = styled.h3`
   font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
   color: ${({ theme }) => theme.homeText};
-`;
+`
 
 export const Answer = styled.p`
   font-size: 1.8rem;
   line-height: 1.5;
   color: ${({ theme }) => theme.homeText};
   opacity: 0.9;
-`;
+`

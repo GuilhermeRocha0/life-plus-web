@@ -2,39 +2,32 @@ import React, { useState, useEffect } from 'react'
 import { LoginContainer, Formulario, CadastroLink } from '../styles/Styles'
 import Background from '../components/Background'
 import { Link, useNavigate } from 'react-router-dom'
-import { useUser } from '../context/UserContext'
-
+import { useAuth } from '../hooks/useAuth'
 import LoadingModal from '../components/LoadingModal'
 import ModalMessage from '../components/ModalMessage'
 
 const Login: React.FC = () => {
-  const {
-    loginUser,
-    loading,
-    message,
-    messageType,
-    loginSuccess,
-    closeMessage
-  } = useUser()
-
+  const { login, loading, message, messageType, loginSuccess, closeMessage } =
+    useAuth()
   const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   useEffect(() => {
-    if (loginSuccess) {
+    if (messageType === 'success') {
       const timer = setTimeout(() => {
         closeMessage()
         navigate('/perfil')
-      }, 1500)
+      }, 600)
+
       return () => clearTimeout(timer)
     }
-  }, [loginSuccess])
+  }, [messageType])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    await loginUser({ email, password })
+    await login({ email, password })
   }
 
   return (

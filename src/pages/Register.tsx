@@ -3,11 +3,10 @@ import { CadastroContainer, Formulario, LoginText } from '../styles/Styles'
 import Background from '../components/Background'
 import LoadingModal from '../components/LoadingModal'
 import ModalMessage from '../components/ModalMessage'
-import { useUser } from '../hooks/useUser'
+import { useAuth } from '../hooks/useAuth'
 
 const Register: React.FC = () => {
-  const { registerUser, loading, message, messageType, closeMessage } =
-    useUser()
+  const { register, loading, message, messageType, closeMessage } = useAuth()
 
   const [form, setForm] = useState({
     name: '',
@@ -16,19 +15,17 @@ const Register: React.FC = () => {
     confirmPassword: '',
     birthDate: ''
   })
+  const [localMessage, setLocalMessage] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     if (form.password !== form.confirmPassword) {
-      return registerUser(
-        null,
-        'A senha e a confirmação não coincidem.',
-        'error'
-      )
+      setLocalMessage('A senha e a confirmação não coincidem.')
+      return
     }
 
-    await registerUser({
+    await register({
       name: form.name,
       email: form.email,
       password: form.password,
@@ -45,8 +42,11 @@ const Register: React.FC = () => {
       <ModalMessage
         isOpen={!!message}
         title={messageType === 'error' ? 'Erro' : 'Sucesso'}
-        message={message || ''}
-        onClose={closeMessage}
+        message={localMessage || message || ''}
+        onClose={() => {
+          closeMessage()
+          setLocalMessage(null)
+        }}
       />
 
       <CadastroContainer>

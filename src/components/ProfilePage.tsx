@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   ProfileContainer,
   ProfileCard,
@@ -20,57 +20,37 @@ import {
   StatLabel,
   StatValue
 } from '../styles/Styles'
+import defaultAvatar from '../assets/default-avatar.png'
 
-// --- Tipagens ---
 export interface UserProfile {
   id: string
   fullName: string
-  job: string
   avatarUrl?: string
-  location?: string
   email?: string
   cautions?: string
-  phone?: string
   medicine?: string
-  joinedAt?: string // ISO date
+  joinedAt?: string
 }
 
-// --- Componente principal ---
-export default function ProfilePage({ user }: { user?: UserProfile }) {
-  // Exemplo de dados default (apenas quando não receber props)
-  const defaultUser: UserProfile = {
-    id: 'u_001',
-    fullName: 'Cleiton Rasta',
-    job: 'Desempregado',
-    avatarUrl: 'https://i.pravatar.cc/150?img=11',
-    location: 'São Paulo, Brasil',
-    email: 'cleiton@example.com',
-    cautions: 'Pressão Alta, Diabetes',
-    medicine: 'Paracetamol, Tibolona, Lozartana',
-    phone: '+55 11 9 9999-9999',
-    joinedAt: '2023-04-15'
-  }
+export default function ProfilePage({ user }: { user?: any }) {
+  const [profile, setProfile] = useState<UserProfile | null>(null)
 
-  const [profile, setProfile] = useState<UserProfile>(user ?? defaultUser)
-  const [isEditing, setIsEditing] = useState(false)
-  const [formState, setFormState] = useState<UserProfile>(profile)
+  useEffect(() => {
+    if (user) {
+      setProfile({
+        id: user._id,
+        fullName: user.name,
+        email: user.email,
+        cautions: user.cautions ?? '',
+        medicine: user.medicines ?? '',
+        avatarUrl: user.avatar ?? defaultAvatar,
+        joinedAt: user.createdAt
+      })
+    }
+    console.log('User data:', user)
+  }, [user])
 
-  function openEdit() {
-    setFormState(profile)
-    setIsEditing(true)
-  }
-
-  function saveEdit() {
-    setProfile(formState)
-    setIsEditing(false)
-  }
-
-  function onChange<K extends keyof UserProfile>(
-    key: K,
-    value: UserProfile[K]
-  ) {
-    setFormState(prev => ({ ...prev, [key]: value }))
-  }
+  if (!profile) return <p>Carregando perfil...</p>
 
   return (
     <ProfileContainer>
@@ -79,39 +59,36 @@ export default function ProfilePage({ user }: { user?: UserProfile }) {
           <ProfileAvatar src={profile.avatarUrl} alt={profile.fullName} />
           <ProfileInfo>
             <ProfileName>{profile.fullName}</ProfileName>
-            <ProfileJob>Trabalho: {profile.job}</ProfileJob>
-            <ProfileCautions>{profile.phone}</ProfileCautions>
+
             <ProfileDetails>
-              <span>{profile.location}</span>
               <span>{profile.email}</span>
             </ProfileDetails>
           </ProfileInfo>
         </ProfileHeader>
 
-        <StatsWrapper>
+        {/* <StatsWrapper>
           <StatCard>
             <StatLabel>Remédios</StatLabel>
             <StatValue>{profile.medicine}</StatValue>
           </StatCard>
-          ...
-        </StatsWrapper>
+        </StatsWrapper> */}
 
         <AboutSection>
           <SectionTitle>Problemas</SectionTitle>
-          <SectionContent>{profile.cautions}</SectionContent>
+          {/* <SectionContent>{profile.cautions}</SectionContent> */}
 
           <SectionTitle>Pastas de Exames</SectionTitle>
-          <ExamsWrapper>
+          {/* <ExamsWrapper>
             {['Exame de Sangue', 'Raio-x', 'Dieta'].map(exams => (
               <ExamsTag key={exams}>{exams}</ExamsTag>
             ))}
-          </ExamsWrapper>
+          </ExamsWrapper> */}
 
-          <SectionTitle>Remedios Acabando</SectionTitle>
-          <MedicineList>
+          <SectionTitle>Remédios Acabando</SectionTitle>
+          {/* <MedicineList>
             <li>Tibolona</li>
             <li>Lozartana</li>
-          </MedicineList>
+          </MedicineList> */}
         </AboutSection>
       </ProfileCard>
     </ProfileContainer>
