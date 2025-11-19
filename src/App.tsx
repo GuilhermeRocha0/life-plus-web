@@ -9,6 +9,7 @@ import { GlobalStyles } from './styles/GlobalStyles'
 import { AuthProvider } from './context/AuthContext'
 import { UserProvider } from './context/UserContext' // <- import do UserProvider
 import { ExamProvider } from './context/ExamContext'
+import { MedicineProvider } from './context/MedicineContext'
 
 const App: React.FC = () => {
   const [isDark, setIsDark] = useState<boolean>(() => {
@@ -29,9 +30,11 @@ const App: React.FC = () => {
         <AuthProvider>
           <UserProvider>
             <ExamProvider>
-              <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
-              <UserWayWidget />
-              <Routes />
+              <MedicineProvider>
+                <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
+                <UserWayWidget />
+                <Routes />
+              </MedicineProvider>
             </ExamProvider>
           </UserProvider>
         </AuthProvider>

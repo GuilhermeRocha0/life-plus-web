@@ -210,6 +210,7 @@ export const RegularAddButton = styled.button`
 
   &:hover {
     filter: brightness(1.1);
+    transform: scale(1.05);
   }
 `
 
@@ -272,6 +273,7 @@ export const ViewButton = styled.button`
   cursor: pointer;
   font-weight: 500;
   width: 100%;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     background-color: #006ea5ff;
@@ -476,7 +478,7 @@ export const Formulario = styled.div`
     font-size: 1.8rem;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       filter: brightness(0.9);
@@ -499,6 +501,7 @@ export const CadastroLink = styled.p`
     color: ${({ theme }) => theme.primary};
     font-weight: bold;
     text-decoration: none;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       text-decoration: underline;
@@ -563,9 +566,11 @@ export const ProfileHeader = styled.div`
 `
 
 export const MedicineList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.4rem;
   list-style: disc;
   padding-left: 2rem;
-  font-size: 1.2rem;
   color: ${({ theme }) => theme.text};
 
   li {
@@ -598,6 +603,7 @@ export const LoginText = styled.p`
     color: ${({ theme }) => theme.primary};
     font-weight: bold;
     text-decoration: none;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       text-decoration: underline;
@@ -692,17 +698,15 @@ export const MedicinesContainer = styled.div`
   min-height: 85vh;
   display: flex;
   justify-content: center;
-  padding: 3rem 2rem;
   background: ${({ theme }) => theme.background};
 `
 
 export const MedicinesCard = styled.div`
   width: 100%;
-  max-width: 60rem;
+  max-width: 80rem;
   background: ${({ theme }) => theme.card};
   border-radius: 2rem;
-  padding: 2.4rem;
-  box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.08);
+  padding-inline: 2.4rem;
 `
 
 export const MedicinesHeader = styled.div`
@@ -732,6 +736,10 @@ export const MedicineItem = styled.div`
   padding: 1.2rem 1.6rem;
   border-radius: 1.2rem;
   border: 1px solid ${({ theme }) => theme.border};
+
+  @media only screen and (max-width: 960px) {
+    flex-direction: column;
+  }
 `
 
 export const MedicineInfo = styled.div`
@@ -745,6 +753,17 @@ export const MedicineInfo = styled.div`
   }
 `
 
+export const MedicineActions = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+  width: 100%;
+
+  @media only screen and (max-width: 960px) {
+    padding-top: 2.4rem;
+  }
+`
+
 export const BtnAdd = styled.button`
   background: ${({ theme }) => theme.primary};
   color: white;
@@ -753,7 +772,7 @@ export const BtnAdd = styled.button`
   border-radius: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: 0.2s;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     opacity: 0.9;
@@ -761,16 +780,18 @@ export const BtnAdd = styled.button`
 `
 
 export const BtnStatus = styled.button<{ taken: boolean }>`
+  align-self: flex-end;
   background: ${({ taken, theme }) => (taken ? theme.success : theme.error)};
-  color: white;
-  padding: 0.6rem 1.4rem;
+  color: #fff;
+  padding: 0.8rem 1.6rem;
   border: none;
   border-radius: 0.8rem;
   cursor: pointer;
-  transition: 0.2s;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    opacity: 0.9;
+    filter: brightness(1.1);
   }
 `
 // Reset Password styles
@@ -953,6 +974,7 @@ export const CloseButton = styled.button`
   padding: 1rem 1.6rem;
   cursor: pointer;
   font-weight: 500;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     background-color: #0056b3;
@@ -1114,7 +1136,7 @@ export const SubmitButton = styled.button`
   border-radius: 0.8rem;
   cursor: pointer;
   margin-right: 1.6rem;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     background-color: ${({ theme }) => theme.buttonPrimaryHover};
@@ -1316,7 +1338,7 @@ export const TopActions = styled.div`
 
 export const BottomActions = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin-top: 2rem;
 `
 
@@ -1367,6 +1389,7 @@ export const OptionsButton = styled.button`
   cursor: pointer;
   transition: all 0.3s;
   border: 1px solid ${({ theme }) => theme.text};
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     background-color: ${({ theme }) => theme.buttonPrimaryHover};
@@ -1441,5 +1464,91 @@ export const OptionsDropdownItem = styled.button`
     &:focus-visible {
       background: rgba(211, 47, 47, 0.12);
     }
+  }
+`
+
+export const MedicineCardSkeleton = styled.div`
+  width: 100%;
+  height: 90px;
+  border-radius: 1.2rem;
+
+  background: linear-gradient(90deg, #e0e0e0 0px, #ececec 120px, #e0e0e0 240px);
+  background-size: 400px 100%;
+  animation: ${shimmer} 1.3s ease-in-out infinite;
+
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
+`
+
+export const MedicineCard = styled.div`
+  background: ${({ theme }) => theme.backgroundSecondary};
+  border: 1px solid ${({ theme }) => theme.border};
+  padding: 1.6rem;
+  border-radius: 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    filter: brightness(1.03);
+  }
+`
+
+export const MedicineCardHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    font-weight: 600;
+    color: ${({ theme }) => theme.text};
+  }
+
+  small {
+    color: ${({ theme }) => theme.textSecondary};
+  }
+`
+export const MedicineCardInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3rem;
+
+  p {
+    color: ${({ theme }) => theme.textSecondary};
+
+    b {
+      color: ${({ theme }) => theme.text};
+    }
+  }
+`
+
+export const MedicineHistoryContainer = styled.div`
+  padding-top: 3.6rem;
+`
+
+export const MedicineHistoryList = styled.ul`
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1.6rem;
+  list-style: none;
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  & > div:last-child {
+    border-bottom: none;
+  }
+
+  span {
+    color: #555;
+  }
+
+  b {
+    color: #000;
   }
 `

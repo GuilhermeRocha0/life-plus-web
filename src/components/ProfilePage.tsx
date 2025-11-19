@@ -49,7 +49,6 @@ export default function ProfilePage({ user }: { user?: any }) {
         joinedAt: user.createdAt
       })
     }
-    console.log('User data:', user)
   }, [user])
 
   if (!profile) return <p>Carregando perfil...</p>
