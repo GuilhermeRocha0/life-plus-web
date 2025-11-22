@@ -11,7 +11,7 @@ import ResetPassword from '../pages/ResetPassword.tsx'
 import Faq from '../pages/Faq.tsx'
 import PrivateRoute from './PrivateRoute'
 import Settings from '../pages/Settings.tsx'
-
+import Relatorios from '../pages/Relatorios.tsx'
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
@@ -25,6 +25,15 @@ const AppRoutes: React.FC = () => {
         element={
           <PrivateRoute>
             <Profile />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/relatorios"
+        element={
+          <PrivateRoute>
+            <Relatorios/>
           </PrivateRoute>
         }
       />

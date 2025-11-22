@@ -57,6 +57,11 @@ const ResponsiveNavbar: React.FC = () => {
               Remédios
             </StyledLink>
           </MenuItem>
+          <MenuItem>
+            <StyledLink to="/relatorios" onClick={() => setMenuOpen(false)}>
+              Relatórios
+            </StyledLink>
+          </MenuItem>
         </MenuDivider>
 
         <MenuDivider>
