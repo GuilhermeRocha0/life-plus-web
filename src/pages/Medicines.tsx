@@ -19,7 +19,8 @@ import {
   Input,
   SubmitButton,
   CancelButton,
-  MedicineList
+  MedicineList,
+  ExamInfoText
 } from '../styles/Styles'
 
 type ActiveSection = 'list' | 'create' | 'view' | null
@@ -307,7 +308,7 @@ const Medicines: React.FC = () => {
         </PageHeader>
 
         {medicines.length === 0 ? (
-          <p>Nenhum remédio cadastrado.</p>
+          <ExamInfoText>Nenhum remédio cadastrado.</ExamInfoText>
         ) : (
           <MedicineList>
             {medicines.map(med => (

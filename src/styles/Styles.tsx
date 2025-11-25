@@ -1112,6 +1112,8 @@ export const InputGroup = styled.div`
 export const Label = styled.label`
   font-size: 1.6rem;
   margin-bottom: 0.8rem;
+  color: ${({ theme }) => theme.text};
+
 `
 
 export const Input = styled.input`

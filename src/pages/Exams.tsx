@@ -18,7 +18,8 @@ import {
   CancelButton,
   ExamsGrid,
   PageHeader,
-  ExamCardSkeleton
+  ExamCardSkeleton,
+  ExamInfoText
 } from '../styles/Styles'
 
 import * as examService from '../services/examService'
@@ -227,7 +228,7 @@ const Exams: React.FC = () => {
         </PageHeader>
 
         {exams.length === 0 ? (
-          <p>Nenhum exame cadastrado.</p>
+          <ExamInfoText>Nenhum exame cadastrado.</ExamInfoText>
         ) : (
           <ExamsGrid>
             {exams.map(exam => (
