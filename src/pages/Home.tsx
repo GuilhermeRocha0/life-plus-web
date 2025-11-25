@@ -17,15 +17,6 @@ import {
 
 const Home: React.FC = () => {
   const { user } = useAuth()
-  const navigate = useNavigate()
-
-  const handleEnterClick = () => {
-    if (user) {
-      navigate('/perfil')
-    } else {
-      navigate('/login')
-    }
-  }
 
   return (
     <HomeWrapper>
@@ -44,7 +35,7 @@ const Home: React.FC = () => {
           e encontre farmácias próximas.
         </MainText>
         <Buttons>
-          <PrimaryButtonLink as="button" onClick={handleEnterClick}>
+          <PrimaryButtonLink to={user ? '/perfil' : '/login'}>
             Entrar
           </PrimaryButtonLink>
         </Buttons>

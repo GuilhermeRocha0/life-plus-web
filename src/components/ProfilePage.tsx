@@ -6,19 +6,10 @@ import {
   ProfileAvatar,
   ProfileInfo,
   ProfileName,
-  ProfileJob,
-  ProfileCautions,
   ProfileDetails,
-  StatsWrapper,
   AboutSection,
   SectionTitle,
-  SectionContent,
-  ExamsWrapper,
-  ExamsTag,
-  MedicineList,
-  StatCard,
-  StatLabel,
-  StatValue
+
 } from '../styles/Styles'
 import defaultAvatar from '../assets/default-avatar.png'
 
@@ -67,29 +58,14 @@ export default function ProfilePage({ user }: { user?: any }) {
           </ProfileInfo>
         </ProfileHeader>
 
-        {/* <StatsWrapper>
-          <StatCard>
-            <StatLabel>Remédios</StatLabel>
-            <StatValue>{profile.medicine}</StatValue>
-          </StatCard>
-        </StatsWrapper> */}
-
         <AboutSection>
           <SectionTitle>Problemas</SectionTitle>
-          {/* <SectionContent>{profile.cautions}</SectionContent> */}
 
           <SectionTitle>Pastas de Exames</SectionTitle>
-          {/* <ExamsWrapper>
-            {['Exame de Sangue', 'Raio-x', 'Dieta'].map(exams => (
-              <ExamsTag key={exams}>{exams}</ExamsTag>
-            ))}
-          </ExamsWrapper> */}
+
 
           <SectionTitle>Remédios Acabando</SectionTitle>
-          {/* <MedicineList>
-            <li>Tibolona</li>
-            <li>Lozartana</li>
-          </MedicineList> */}
+
         </AboutSection>
       </ProfileCard>
     </ProfileContainer>
