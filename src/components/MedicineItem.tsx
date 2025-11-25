@@ -6,7 +6,6 @@ import {
   MedicineActions,
   ViewButton
 } from '../styles/Styles'
-import { useMedicine } from '../hooks/useMedicine'
 import * as medicineService from '../services/medicineService'
 import { formatDateBR } from '../utils/date'
 
