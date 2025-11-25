@@ -283,7 +283,7 @@ export const ViewButton = styled.button`
 // Home
 
 export const HomeWrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
