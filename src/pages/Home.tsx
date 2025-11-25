@@ -1,4 +1,6 @@
-import React from 'react';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
 import {
   HomeWrapper,
   HomeHeader,
@@ -9,20 +11,29 @@ import {
   MainText,
   Buttons,
   PrimaryButtonLink,
-  OutlineButtonLink,
   FooterNote,
   Logo
-} from '../styles/Styles';
+} from '../styles/Styles'
 
 const Home: React.FC = () => {
+  const { user } = useAuth()
+  const navigate = useNavigate()
+
+  const handleEnterClick = () => {
+    if (user) {
+      navigate('/perfil')
+    } else {
+      navigate('/login')
+    }
+  }
+
   return (
     <HomeWrapper>
       <HomeHeader>
         <Logo to="/">Life+</Logo>
         <HomeNav>
           <HomeNavLink to="/faq">FAQ</HomeNavLink>
-          <HomeNavLink to="/login">Entrar</HomeNavLink>
-          <HomeNavLink to="/cadastro">Criar Conta</HomeNavLink>
+          <HomeNavLink to={user ? '/perfil' : '/login'}>Entrar</HomeNavLink>
         </HomeNav>
       </HomeHeader>
 
@@ -33,14 +44,15 @@ const Home: React.FC = () => {
           e encontre farmácias próximas.
         </MainText>
         <Buttons>
-          <PrimaryButtonLink to="/login">Entrar</PrimaryButtonLink>
-          <PrimaryButtonLink to="/cadastro">Criar Conta</PrimaryButtonLink>
+          <PrimaryButtonLink as="button" onClick={handleEnterClick}>
+            Entrar
+          </PrimaryButtonLink>
         </Buttons>
       </MainSection>
 
       <FooterNote>© 2025 Life+. Todos os direitos reservados.</FooterNote>
     </HomeWrapper>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

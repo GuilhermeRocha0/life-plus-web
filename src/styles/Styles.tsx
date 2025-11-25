@@ -1,7 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 
-
 // Navbar
 export const Navbar = styled.nav`
   background: linear-gradient(to bottom, #00c6ff, #0072ff);
@@ -26,16 +25,17 @@ export const Navbar = styled.nav`
     width: 100%;
     height: 6rem;
     padding: 2.4rem 1.6rem;
-    position: relative;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
+`
+export const LogoContainer = styled.div`
+  padding-left: 1.6rem;
 `
 
 export const Logo = styled(Link)`
   font-size: 3.2rem;
   font-weight: bold;
-  text-align: center;
   color: #fff;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
@@ -53,13 +53,13 @@ export const Logo = styled(Link)`
 
 export const MenuLinks = styled.ul<{ isOpen: boolean }>`
   list-style: none;
-  padding: 0 0 0 45px;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.6rem;
   flex-grow: 1;
   margin-top: 3.2rem;
+  justify-content: space-between;
 
   @media only screen and (max-width: 960px) {
     position: fixed;
@@ -79,11 +79,35 @@ export const MenuLinks = styled.ul<{ isOpen: boolean }>`
   }
 `
 
+export const MenuDivider = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`
+
 export const MenuItem = styled.li`
   cursor: pointer;
   transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
   font-size: 1.8rem;
   transform-origin: left center;
+  padding-inline: 1.6rem;
+
+  &:hover {
+    filter: brightness(1.5);
+    transform: scale(1.1);
+    font-weight: 500;
+  }
+`
+
+export const LogOutButton = styled.li`
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  font-size: 1.8rem;
+  transform-origin: left center;
+  background-color: #ff4d4d;
+  padding: 1rem 2.4rem;
+  border-radius: 0.8rem;
+  justify-self: end;
 
   &:hover {
     filter: brightness(1.5);
@@ -151,6 +175,10 @@ export const PageWrapper = styled.div`
   @media only screen and (min-width: 960px) {
     margin-left: 24rem;
   }
+
+  @media only screen and (max-width: 960px) {
+    margin-top: 7.2rem;
+  }
 `
 
 export const PageHeader = styled.div`
@@ -163,7 +191,7 @@ export const PageHeader = styled.div`
 export const PageTitle = styled.h1`
   font-size: 3.2rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.homeText};
+  color: ${({ theme }) => theme.text};
 
   @media only screen and (max-width: 767px) {
     font-size: 2.8rem;
@@ -182,6 +210,7 @@ export const RegularAddButton = styled.button`
 
   &:hover {
     filter: brightness(1.1);
+    transform: scale(1.05);
   }
 `
 
@@ -244,6 +273,7 @@ export const ViewButton = styled.button`
   cursor: pointer;
   font-weight: 500;
   width: 100%;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     background-color: #006ea5ff;
@@ -253,7 +283,7 @@ export const ViewButton = styled.button`
 // Home
 
 export const HomeWrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -262,22 +292,22 @@ export const HomeWrapper = styled.div`
   color: ${({ theme }) => theme.homeText};
   font-family: Arial, sans-serif;
   transition: all 0.3s ease-in-out;
-  background-image: ${({ theme }) => theme.backgroundImage || "none"};
+  background-image: ${({ theme }) => theme.backgroundImage || 'none'};
   background-size: cover;
   background-position: center;
-`;
+`
 
 export const HomeHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem 5rem;
-`;
+`
 
 export const HomeLogo = styled.h1`
   font-size: 3rem;
   font-weight: bold;
-`;
+`
 
 export const HomeNav = styled.nav`
   display: flex;
@@ -287,7 +317,7 @@ export const HomeNav = styled.nav`
   @media only screen and (max-width: 768px) {
     gap: 0.6rem;
   }
-`;
+`
 
 export const HomeNavLink = styled(Link)`
   padding: 1.2rem 2.4rem;
@@ -308,37 +338,37 @@ export const HomeNavLink = styled(Link)`
   @media only screen and (max-width: 425px) {
     display: none;
   }
-`;
+`
 
 export const MainSection = styled.main`
   text-align: center;
   max-width: 80rem;
   margin: auto;
   padding: 2rem;
-`;
+`
 
 export const MainTitle = styled.h2`
   font-size: 5.6rem;
   font-weight: bold;
   margin-bottom: 2rem;
-`;
+`
 
 export const MainText = styled.p`
   font-size: 2rem;
   margin-bottom: 3rem;
-`;
+`
 
 export const Buttons = styled.div`
   display: flex;
   justify-content: center;
   gap: 1.6rem;
   outline: none;
-`;
+`
 
 export const PrimaryButtonLink = styled(Link)`
   background: ${({ theme }) => theme.buttonPrimary};
   color: ${({ theme }) => theme.homeButtonPrimaryText};
-  padding: 1.2rem 2.4rem;
+  padding: 1.6rem 6rem;
   border-radius: 0.8rem;
   border: none;
   cursor: pointer;
@@ -350,7 +380,7 @@ export const PrimaryButtonLink = styled(Link)`
     filter: brightness(0.8);
     transform: scale(1.05);
   }
-`;
+`
 
 export const OutlineButtonLink = styled(Link)`
   background: transparent;
@@ -367,15 +397,14 @@ export const OutlineButtonLink = styled(Link)`
     background: ${({ theme }) => theme.buttonOutlineHover};
     transform: scale(1.05);
   }
-`;
+`
 
 export const FooterNote = styled.footer`
   text-align: center;
   padding: 1.6rem;
   font-size: 1.1rem;
   background: transparent;
-`;
-
+`
 
 // Login
 
@@ -387,15 +416,15 @@ export const LoginContainer = styled.div`
   justify-content: center;
   background-size: cover;
   padding: 3.2rem;
-`;
+`
 
-export const CadastroContainer = styled(LoginContainer)``;
+export const CadastroContainer = styled(LoginContainer)``
 
 export const Formulario = styled.div`
   background: ${({ theme }) =>
-    theme.background === "#121212"
-      ? "rgba(30, 30, 30, 0.95)"
-      : "rgba(255, 255, 255, 0.95)"};
+    theme.background === '#121212'
+      ? 'rgba(30, 30, 30, 0.95)'
+      : 'rgba(255, 255, 255, 0.95)'};
   padding: 3.2rem;
   border-radius: 2rem;
   width: 50rem;
@@ -429,12 +458,11 @@ export const Formulario = styled.div`
     padding: 1.4rem;
     margin-bottom: 1rem;
     border: 0.1rem solid
-      ${({ theme }) =>
-        theme.background === "#121212" ? "#444" : "#ccc"};
+      ${({ theme }) => (theme.background === '#121212' ? '#444' : '#ccc')};
     border-radius: 1.2rem;
     font-size: 1.6rem;
     background: ${({ theme }) =>
-      theme.background === "#121212" ? "#2b2b2b" : "#fff"};
+      theme.background === '#121212' ? '#2b2b2b' : '#fff'};
     color: ${({ theme }) => theme.text};
     outline: none;
   }
@@ -450,7 +478,7 @@ export const Formulario = styled.div`
     font-size: 1.8rem;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       filter: brightness(0.9);
@@ -461,7 +489,7 @@ export const Formulario = styled.div`
     box-shadow: none;
     width: 30rem;
   }
-`;
+`
 
 export const CadastroLink = styled.p`
   margin-top: 1rem;
@@ -473,13 +501,14 @@ export const CadastroLink = styled.p`
     color: ${({ theme }) => theme.primary};
     font-weight: bold;
     text-decoration: none;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       text-decoration: underline;
       filter: brightness(1.2);
     }
   }
-`;
+`
 
 export const BackgroundVideo = styled.video`
   position: fixed;
@@ -490,7 +519,7 @@ export const BackgroundVideo = styled.video`
   object-fit: cover;
   filter: contrast(1.15) brightness(0.9) saturate(1.1);
   transition: opacity 0.5s ease-in-out;
-`;
+`
 
 // Container geral da página
 export const ProfileContainer = styled.div`
@@ -499,7 +528,7 @@ export const ProfileContainer = styled.div`
   justify-content: center;
   padding: 3rem 2rem;
   background: ${({ theme }) => theme.background};
-`;
+`
 
 // Card central
 export const ProfileCard = styled.div`
@@ -511,7 +540,7 @@ export const ProfileCard = styled.div`
   overflow: hidden;
   transition: all 0.3s ease;
   border: 1px solid ${({ theme }) => theme.border};
-`;
+`
 export const ExamsTag = styled.span`
   background: ${({ theme }) => theme.buttonOutlineHover};
   padding: 0.6rem 1.2rem;
@@ -520,13 +549,13 @@ export const ExamsTag = styled.span`
   color: ${({ theme }) => theme.text};
   margin-bottom: 1.6rem;
   display: inline-block;
-`;
+`
 export const ExamsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-top: 1rem;
-`;
+`
 // Cabeçalho (foto + infos)
 export const ProfileHeader = styled.div`
   display: flex;
@@ -534,34 +563,36 @@ export const ProfileHeader = styled.div`
   gap: 2.4rem;
   padding: 3rem;
   border-bottom: 1px solid ${({ theme }) => theme.border};
-`;
+`
 
 export const MedicineList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.4rem;
   list-style: disc;
   padding-left: 2rem;
-  font-size: 1.2rem;
   color: ${({ theme }) => theme.text};
 
   li {
     margin-bottom: 0.6rem;
   }
-`;
+`
 
 export const ProfileDetails = styled.div`
   margin-top: 1.6rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
-  font-size: 1.1rem;
+  row-gap: 1.2rem;
+  font-size: 1.4rem;
   color: ${({ theme }) => theme.text};
-`;
+`
 export const MedicinesListHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.text};
-`;
+`
 export const LoginText = styled.p`
   margin-top: 1rem;
   text-align: center;
@@ -572,63 +603,64 @@ export const LoginText = styled.p`
     color: ${({ theme }) => theme.primary};
     font-weight: bold;
     text-decoration: none;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       text-decoration: underline;
       color: ${({ theme }) => theme.buttonPrimaryHover};
     }
   }
-`;
+`
 export const ProfileAvatar = styled.img`
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid ${({ theme }) => theme.primary};
-`;
+`
 
 export const ProfileInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-`;
+`
 
 export const ProfileName = styled.h1`
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: ${({ theme }) => theme.text};
   font-weight: 700;
-`;
+`
 
 export const ProfileJob = styled.p`
   font-size: 1.3rem;
   color: ${({ theme }) => theme.textSecondary};
-`;
+`
 
 export const ProfileCautions = styled.p`
   margin-top: 1rem;
   font-size: 1.2rem;
   color: ${({ theme }) => theme.textSecondary};
-`;
+`
 
 // Seções de conteúdo
 export const AboutSection = styled.div`
   padding: 2.4rem 3rem;
-`;
+`
 
 export const SectionTitle = styled.h2`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: ${({ theme }) => theme.text};
   margin-bottom: 1rem;
   border-left: 4px solid ${({ theme }) => theme.primary};
   padding-left: 1rem;
-`;
+`
 
 export const SectionContent = styled.div`
   font-size: 1.3rem;
   color: ${({ theme }) => theme.textSecondary};
   line-height: 1.6;
-`;
+`
 
 // Estatísticas
 export const StatsWrapper = styled.div`
@@ -636,7 +668,7 @@ export const StatsWrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: 1.6rem;
   padding: 2rem 3rem;
-`;
+`
 
 export const StatCard = styled.div`
   background: ${({ theme }) => theme.buttonPrimary};
@@ -648,36 +680,34 @@ export const StatCard = styled.div`
   &:hover {
     transform: translateY(-4px);
   }
-`;
+`
 
 export const StatLabel = styled.p`
   font-size: 1.3rem;
   color: ${({ theme }) => theme.textSecondary};
-`;
+`
 
 export const StatValue = styled.h3`
   font-size: 2rem;
   font-weight: 700;
   margin-top: 0.4rem;
-`;
+`
 
 // 🔹 Remédios
 export const MedicinesContainer = styled.div`
   min-height: 85vh;
   display: flex;
   justify-content: center;
-  padding: 3rem 2rem;
   background: ${({ theme }) => theme.background};
-`;
+`
 
 export const MedicinesCard = styled.div`
   width: 100%;
-  max-width: 60rem;
+  max-width: 80rem;
   background: ${({ theme }) => theme.card};
   border-radius: 2rem;
-  padding: 2.4rem;
-  box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.08);
-`;
+  padding-inline: 2.4rem;
+`
 
 export const MedicinesHeader = styled.div`
   display: flex;
@@ -690,13 +720,13 @@ export const MedicinesHeader = styled.div`
     font-weight: 700;
     color: ${({ theme }) => theme.text};
   }
-`;
+`
 
 export const MedicinesList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-`;
+`
 
 export const MedicineItem = styled.div`
   display: flex;
@@ -706,7 +736,11 @@ export const MedicineItem = styled.div`
   padding: 1.2rem 1.6rem;
   border-radius: 1.2rem;
   border: 1px solid ${({ theme }) => theme.border};
-`;
+
+  @media only screen and (max-width: 960px) {
+    flex-direction: column;
+  }
+`
 
 export const MedicineInfo = styled.div`
   h3 {
@@ -717,7 +751,18 @@ export const MedicineInfo = styled.div`
   p {
     color: ${({ theme }) => theme.textSecondary};
   }
-`;
+`
+
+export const MedicineActions = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+  width: 100%;
+
+  @media only screen and (max-width: 960px) {
+    padding-top: 2.4rem;
+  }
+`
 
 export const BtnAdd = styled.button`
   background: ${({ theme }) => theme.primary};
@@ -727,26 +772,28 @@ export const BtnAdd = styled.button`
   border-radius: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: 0.2s;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     opacity: 0.9;
   }
-`;
+`
 
 export const BtnStatus = styled.button<{ taken: boolean }>`
+  align-self: flex-end;
   background: ${({ taken, theme }) => (taken ? theme.success : theme.error)};
-  color: white;
-  padding: 0.6rem 1.4rem;
+  color: #fff;
+  padding: 0.8rem 1.6rem;
   border: none;
   border-radius: 0.8rem;
   cursor: pointer;
-  transition: 0.2s;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    opacity: 0.9;
+    filter: brightness(1.1);
   }
-`;
+`
 // Reset Password styles
 
 export const ResetPasswordPage = styled.div`
@@ -757,7 +804,7 @@ export const ResetPasswordPage = styled.div`
   align-items: center;
   padding: 1.6rem;
   transition: background-color 0.3s ease;
-`;
+`
 
 export const ResetPasswordContainer = styled.div`
   background-color: ${({ theme }) => theme.cardBackground};
@@ -771,14 +818,14 @@ export const ResetPasswordContainer = styled.div`
   @media (max-width: 480px) {
     padding: 2.4rem;
   }
-`;
+`
 
 export const ResetPasswordTitle = styled.h2`
   margin-bottom: 2.4rem;
   text-align: center;
   font-size: 2.8rem;
   color: ${({ theme }) => theme.textPrimary};
-`;
+`
 
 export const ResetPasswordForm = styled.form`
   display: flex;
@@ -790,7 +837,7 @@ export const ResetPasswordForm = styled.form`
     font-size: 1.6rem;
     color: ${({ theme }) => theme.textSecondary};
   }
-`;
+`
 
 export const ResetPasswordInput = styled.input`
   border: 0.1rem solid ${({ theme }) => theme.inputBorder};
@@ -812,14 +859,14 @@ export const ResetPasswordInput = styled.input`
   &::placeholder {
     color: ${({ theme }) => theme.textPlaceholder};
   }
-`;
+`
 
 export const ResetPasswordCodeContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 0.8rem;
   margin: 1.2rem 0;
-`;
+`
 
 export const ResetPasswordCodeInput = styled(ResetPasswordInput)`
   padding: 1.2rem;
@@ -834,7 +881,7 @@ export const ResetPasswordCodeInput = styled(ResetPasswordInput)`
     font-size: 1.8rem;
     padding: 1rem;
   }
-`;
+`
 
 export const ResetPasswordButton = styled.button`
   background-color: ${({ theme }) => theme.primary};
@@ -851,7 +898,7 @@ export const ResetPasswordButton = styled.button`
     background-color: ${({ theme }) => theme.buttonPrimaryHover};
     transform: scale(1.03);
   }
-`;
+`
 
 export const ResetPasswordCancel = styled.button`
   background-color: ${({ theme }) => theme.buttonSecondary};
@@ -868,7 +915,7 @@ export const ResetPasswordCancel = styled.button`
     background-color: ${({ theme }) => theme.buttonSecondaryHover};
     transform: scale(1.03);
   }
-`;
+`
 
 // Modal styles
 export const Overlay = styled.div`
@@ -927,6 +974,7 @@ export const CloseButton = styled.button`
   padding: 1rem 1.6rem;
   cursor: pointer;
   font-weight: 500;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     background-color: #0056b3;
@@ -957,7 +1005,6 @@ export const LoadingText = styled.p`
 `
 // FAQ
 
-
 export const FaqSection = styled.main`
   max-width: 80rem;
   margin: auto;
@@ -970,20 +1017,20 @@ export const FaqSection = styled.main`
   @media only screen and (max-width: 768px) {
     padding: 2rem 1.5rem;
   }
-`;
+`
 
 export const FaqTitle = styled.h2`
   font-size: 4rem;
   text-align: center;
   font-weight: bold;
   margin-bottom: 2rem;
-`;
+`
 
 export const FaqList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-`;
+`
 
 export const FaqItem = styled.div`
   background: rgba(255, 255, 255, 0.1);
@@ -995,18 +1042,513 @@ export const FaqItem = styled.div`
     transform: scale(1.02);
     background: rgba(255, 255, 255, 0.15);
   }
-`;
+`
 
 export const Question = styled.h3`
   font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
   color: ${({ theme }) => theme.homeText};
-`;
+`
 
 export const Answer = styled.p`
   font-size: 1.8rem;
   line-height: 1.5;
   color: ${({ theme }) => theme.homeText};
   opacity: 0.9;
-`;
+`
+
+export const SettingsContainer = styled.div`
+  display: flex;
+  min-height: 100vh;
+  background-color: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
+  font-family: 'Roboto', sans-serif;
+`
+
+export const SettingsMenu = styled.div`
+  width: 25rem;
+  background-color: ${({ theme }) => theme.secondaryBackground};
+  padding: 2.4rem;
+  padding-left: 3.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  border-right: 0.1rem solid ${({ theme }) => theme.border};
+  margin-left: -3.6rem;
+  margin-top: -2.4rem;
+`
+
+export const SettingsContent = styled.div`
+  flex: 1;
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+`
+
+export const MenuButton = styled.button`
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
+  font-size: 1.6rem;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: left;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.buttonPrimaryHover};
+  }
+`
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.6rem;
+`
+
+export const Label = styled.label`
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+`
+
+export const Input = styled.input`
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  border: 0.1rem solid ${({ theme }) => theme.border};
+  border-radius: 0.8rem;
+  outline: none;
+  color: ${({ theme }) => theme.textPrimary};
+
+  &:focus {
+    border-color: ${({ theme }) => theme.primary};
+  }
+`
+
+export const SubmitButton = styled.button`
+  padding: 1.2rem 2.4rem;
+  font-size: 1.6rem;
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  margin-right: 1.6rem;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.buttonPrimaryHover};
+  }
+`
+
+export const CancelButton = styled.button`
+  padding: 1.2rem 2.4rem;
+  font-size: 1.6rem;
+  background-color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.text};
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.secondaryHover};
+  }
+`
+
+export const SettingsRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem;
+  background-color: ${({ theme }) => theme.backgroundSecondary};
+  border-radius: 0.8rem;
+  margin-bottom: 1.6rem;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+`
+
+export const SectionText = styled.p`
+  font-size: 1.4rem;
+  color: ${({ theme }) => theme.textSecondary};
+  margin-top: 0.4rem;
+`
+
+export const ActionButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 16rem;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.buttonPrimaryHover};
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+`
+
+export const Textarea = styled.textarea`
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical; /* permite redimensionar verticalmente */
+  min-height: 80px;
+  max-height: 200px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: none;
+
+  &:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+  }
+`
+
+export const ExamFilesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  margin-top: 2rem;
+  justify-content: flex-start;
+`
+
+export const ExamDetailsInfo = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-top: 2rem;
+  justify-content: flex-start;
+`
+
+export const ExamInfoGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-right: 1.6rem;
+`
+
+export const ExamInfoGroupLabel = styled.label`
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+`
+
+export const StyledExamFile = styled.div<{ clickable?: boolean }>`
+  width: 24rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+
+  background-color: ${props => (props.clickable ? '#f9f9f9' : '#fafafa')};
+  border: 1px solid ${props => (props.clickable ? '#ccc' : '#eee')};
+  cursor: ${props => (props.clickable ? 'pointer' : 'default')};
+  transition: background-color 0.2s, transform 0.2s;
+
+  &:hover {
+    background-color: ${props => (props.clickable ? '#eaeaea' : '#fafafa')};
+    transform: ${props => (props.clickable ? 'scale(1.03)' : 'none')};
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+export const ImageFile = styled.img`
+  height: 18rem;
+  width: 18rem;
+
+  border-radius: 10px;
+  object-fit: cover;
+`
+
+export const FileName = styled.span`
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 0.8rem;
+  word-break: break-word;
+  text-align: center;
+`
+
+export const DownloadButton = styled.button`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+  padding: 1.6rem 1.2rem;
+  border: none;
+  border-radius: 0.8rem;
+  background-color: #4f46e5;
+  color: white;
+  font-weight: 500;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+
+  &:hover {
+    background-color: #4338ca;
+    transform: scale(1.05);
+  }
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+`
+
+export const TopActions = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+`
+
+export const BottomActions = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+`
+
+const shimmer = keyframes`
+  0% {
+    background-position: -300px 0;
+  }
+  100% {
+    background-position: 300px 0;
+  }
+`
+
+export const ExamDetailImageSkeleton = styled.div`
+  width: 14rem;
+  height: 14rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #e0e0e0 0px, #ececec 8rem, #e0e0e0 16rem);
+  background-size: 40rem 100%;
+  animation: ${shimmer} 1.4s ease-in-out infinite;
+`
+
+export const ExamCardSkeleton = styled.div`
+  width: 22rem;
+  height: 130px;
+  border-radius: 1.6rem;
+  background: linear-gradient(90deg, #e3e3e3 0px, #f0f0f0 80px, #e3e3e3 160px);
+  background-size: 400px 100%;
+  animation: ${shimmer} 1.4s ease-in-out infinite;
+  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.05);
+
+  @media only screen and (max-width: 767px) {
+    width: 90%;
+  }
+`
+
+export const OptionsButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 16rem;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  background-color: ${({ theme }) => theme.buttonPrimary};
+  color: ${({ theme }) => theme.homeButtonPrimaryText};
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid ${({ theme }) => theme.text};
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.buttonPrimaryHover};
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+`
+
+export const OptionsDropdownContainer = styled.div`
+  position: relative;
+  width: 16rem;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+`
+
+export const OptionsDropdown = styled.div`
+  position: absolute;
+  right: 0;
+  top: 4.8rem;
+
+  width: 16rem;
+  background: ${({ theme }) => theme.background};
+  border-radius: 0.8rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+
+  z-index: 10;
+  animation: fadeIn 0.15s ease;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`
+
+export const OptionsDropdownItem = styled.button`
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+
+  font-size: 1.5rem;
+  color: ${({ theme }) => theme.text};
+  transition: background 0.2s, color 0.2s;
+
+  &:hover,
+  &:focus-visible {
+    background: ${({ theme }) => theme.buttonPrimaryHover};
+    outline: none;
+  }
+
+  &.danger {
+    color: #d32f2f;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(211, 47, 47, 0.12);
+    }
+  }
+`
+
+export const MedicineCardSkeleton = styled.div`
+  width: 100%;
+  height: 90px;
+  border-radius: 1.2rem;
+
+  background: linear-gradient(90deg, #e0e0e0 0px, #ececec 120px, #e0e0e0 240px);
+  background-size: 400px 100%;
+  animation: ${shimmer} 1.3s ease-in-out infinite;
+
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
+`
+
+export const MedicineCard = styled.div`
+  background: ${({ theme }) => theme.backgroundSecondary};
+  border: 1px solid ${({ theme }) => theme.border};
+  padding: 1.6rem;
+  border-radius: 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    filter: brightness(1.03);
+  }
+`
+
+export const MedicineCardHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    font-weight: 600;
+    color: ${({ theme }) => theme.text};
+  }
+
+  small {
+    color: ${({ theme }) => theme.textSecondary};
+  }
+`
+export const MedicineCardInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3rem;
+
+  p {
+    color: ${({ theme }) => theme.textSecondary};
+
+    b {
+      color: ${({ theme }) => theme.text};
+    }
+  }
+`
+
+export const MedicineHistoryContainer = styled.div`
+  padding-top: 3.6rem;
+`
+
+export const MedicineHistoryList = styled.ul`
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1.6rem;
+  list-style: none;
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  & > div:last-child {
+    border-bottom: none;
+  }
+
+  span {
+    color: #555;
+  }
+
+  b {
+    color: #000;
+  }
+`
