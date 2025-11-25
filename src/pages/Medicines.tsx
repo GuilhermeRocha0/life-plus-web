@@ -19,7 +19,6 @@ import {
   Input,
   SubmitButton,
   CancelButton,
-  Textarea,
   MedicineList
 } from '../styles/Styles'
 
@@ -37,9 +36,7 @@ const Medicines: React.FC = () => {
   const [loadingCreate, setLoadingCreate] = useState(false)
   const [selectedMedicine, setSelectedMedicine] =
     useState<medicineService.Medicine | null>(null)
-  const [selectedMedicineId, setSelectedMedicineId] = useState<string | null>(
-    null
-  )
+
 
   const [modalMessage, setModalMessage] = useState<{
     title?: string

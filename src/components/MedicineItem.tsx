@@ -4,7 +4,6 @@ import {
   MedicineCardHeader,
   MedicineCardInfo,
   MedicineActions,
-  BtnStatus,
   ViewButton
 } from '../styles/Styles'
 import { useMedicine } from '../hooks/useMedicine'
@@ -18,11 +17,6 @@ interface Props {
 
 const MedicineItem: React.FC<Props> = ({ medicine, onView }) => {
   const { createHistory } = useMedicine()
-
-  const handleRegisterDose = async () => {
-    const now = new Date().toISOString()
-    await createHistory(medicine.id, now, true)
-  }
 
   const getNextDose = () => {
     if (!medicine.lastTakenAt || !medicine.intervalHours) return null
