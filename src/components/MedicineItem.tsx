@@ -16,8 +16,6 @@ interface Props {
 }
 
 const MedicineItem: React.FC<Props> = ({ medicine, onView }) => {
-  const { createHistory } = useMedicine()
-
   const getNextDose = () => {
     if (!medicine.lastTakenAt || !medicine.intervalHours) return null
     const last = new Date(medicine.lastTakenAt)
