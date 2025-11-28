@@ -1,0 +1,40 @@
+name: CI - LifePlus Web (Frontend)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  frontend:
+    name: Build & Test Frontend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint --if-present
+
+      - name: Build
+        run: npm run dev
+
+      - name: Tests
+        run: npm test --if-present
+
+      - name: Save Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: lifeplus-frontend-dist
+          path: dist/
