@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+  schedule:
+    - cron: "0 9 * * *"
+
+
 jobs:
   frontend:
     name: Build & Test Frontend
