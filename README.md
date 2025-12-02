@@ -4,6 +4,9 @@ lembrando o usuário de quando iniciou e quando precisa tomar a próxima dose.
 
 Como executar:
 git clone https://github.com/GuilhermeRocha0/life-plus-web
+-
 cd life-plus-web
+-
 npm install
+-
 npm run dev
